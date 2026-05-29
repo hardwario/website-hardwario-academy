@@ -1,0 +1,82 @@
+{% import "macros.html" as macros %}
+
+<footer class="site-footer">
+  <div class="site-footer__social">
+    <div class="container socials" aria-label="Sociální sítě">
+      <a href="#" aria-label="LinkedIn">{{ macros::social(name="linkedin") }}</a>
+      <a href="#" aria-label="Twitter / X">{{ macros::social(name="x") }}</a>
+      <a href="#" aria-label="Instagram">{{ macros::social(name="instagram") }}</a>
+      <a href="#" aria-label="YouTube">{{ macros::social(name="youtube") }}</a>
+      <a href="#" aria-label="GitHub">{{ macros::social(name="github") }}</a>
+    </div>
+  </div>
+
+  <div class="container footer-grid">
+    <div class="footer-col footer-col--logo">
+      {{ macros::logo() }}
+    </div>
+
+    <div class="footer-col">
+      <h4>Pobočky</h4>
+      <div class="footer-branches">
+        <div><p class="footer-strong">HARDWARIO a.s.</p><a href="#" class="footer-ext">Czech Republic {{ macros::ext() }}</a></div>
+        <div><p class="footer-strong">HARDWARIO LLC</p><a href="#" class="footer-ext">United States {{ macros::ext() }}</a></div>
+        <div><p class="footer-strong">HARDWARIO LTD</p><a href="#" class="footer-ext">United Kingdom {{ macros::ext() }}</a></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigace</h4>
+      <ul>
+        <li><a href="#">Produkty</a></li>
+        <li><a href="#">Řešení</a></li>
+        <li><a href="#">Služby</a></li>
+        <li><a href="#">Zákazníci</a></li>
+        <li><a href="#">Zdroje</a></li>
+        <li><a href="#" class="footer-ext">Online obchod {{ macros::ext() }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Spojte se s námi</h4>
+      <ul>
+        <li><a href="#" class="footer-ext">LinkedIn {{ macros::ext() }}</a></li>
+        <li><a href="#" class="footer-ext">Twitter/X {{ macros::ext() }}</a></li>
+        <li><a href="#" class="footer-ext">Instagram {{ macros::ext() }}</a></li>
+        <li><a href="#" class="footer-ext">YouTube {{ macros::ext() }}</a></li>
+        <li><a href="#" class="footer-ext">GitHub {{ macros::ext() }}</a></li>
+        <li><a href="#" class="footer-ext">Forum {{ macros::ext() }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Společnost</h4>
+      <ul>
+        <li><a href="#">Podpora</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#">O nás</a></li>
+        <li><a href="#">Partneři</a></li>
+        <li><a href="#">Investoři</a></li>
+        <li><a href="#">Newsroom</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Právní</h4>
+      <ul>
+        <li><a href="#">Zásady ochrany soukromí</a></li>
+        <li><a href="#">Obchodní podmínky</a></li>
+        <li><a href="#">Zásady používání cookies</a></li>
+        <li><a href="#">Nastavení cookies</a></li>
+        <li><a href="#" class="footer-ext">Recyklace {{ macros::ext() }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="container">
+      <p>Copyright © {{ config.extra.year }} HARDWARIO a.s.</p>
+      <p>Vytvořeno nadšeným týmem z celého světa.</p>
+    </div>
+  </div>
+</footer>

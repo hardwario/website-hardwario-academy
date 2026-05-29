@@ -1,0 +1,68 @@
+/* ==========================================================================
+   Responsive — layout breakpoints
+   ========================================================================== */
+
+@media (max-width: 1280px) {
+  :root { --container: 100%; }
+  .hero__title { font-size: 64px; }
+  .h2--big { font-size: 48px; }
+  .h2--mid { font-size: 36px; }
+  .hero__inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .about__inner { grid-template-columns: 1fr 1fr; gap: 56px; }
+  .steps__inner, .faq__inner, .contact__inner { grid-template-columns: 1fr; gap: 56px; }
+  .resources__grid { gap: 32px; }
+  .packages__grid { gap: 32px; }
+  .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
+  .footer-col--logo { grid-column: span 3; }
+}
+
+@media (max-width: 960px) {
+  .main-nav { display: none; }
+  .main-nav.is-open {
+    display: flex; flex-direction: column; align-items: stretch; gap: 2px;
+    position: absolute; top: 72px; left: 0; right: 0;
+    background: var(--bg); border-bottom: 1px solid var(--border-hair);
+    padding: 12px 20px 16px; box-shadow: var(--shadow-md);
+  }
+  .main-nav.is-open > a { padding: 12px 16px; font-size: 16px; }
+  .main-nav.is-open .nav__controls { display: flex; }
+  .nav-toggle { display: flex; }
+
+  .site-header__actions .theme-toggle,
+  .site-header__actions .lang-switch,
+  .site-header__actions .btn { display: none; }
+  .features__grid { grid-template-columns: repeat(2, 1fr); }
+  .courses__grid { grid-template-columns: 1fr 1fr; }
+  .course-feature { grid-column: span 2; grid-row: auto; }
+  .packages__grid { grid-template-columns: 1fr; max-width: 520px; }
+  .stats { flex-wrap: wrap; }
+  .stats__divider { display: none; }
+  .stats__item { flex: 1 1 40%; }
+}
+
+@media (max-width: 720px) {
+  .container { padding-inline: 20px; }
+
+  .logo__svg { height: 26px; }
+  .site-header__inner { gap: 12px; }
+
+  .hero { padding-top: 40px; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__title { font-size: 44px; }
+  .hero__copy { gap: 32px; }
+  .h2--big { font-size: 36px; }
+  .h2--mid { font-size: 28px; }
+
+  .features, .packages { padding: 64px 0; }
+  .about, .courses, .steps, .faq, .resources, .contact { padding: 56px 0; }
+  .features__grid, .courses__grid, .about__inner, .resources__grid, .contact-form__grid { grid-template-columns: 1fr; }
+  .courses__grid .course-feature { grid-column: auto; }
+  .course-card h3 { font-size: 28px; line-height: 1.15; }
+  .faq-item summary { font-size: 18px; }
+  .hero__cta .btn, .about__cta .btn { flex: 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-col--logo { grid-column: span 2; }
+  .site-footer__bottom .container { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .step__num { font-size: 48px; }
+  .site-footer { margin-top: 80px; }
+}

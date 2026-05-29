@@ -1,0 +1,23 @@
+{% import "macros.html" as macros %}
+
+<section class="steps" id="pro-ucitele">
+  <div class="container steps__inner">
+    <div class="steps__copy" data-aos="fade-right">
+      <span class="kicker">{{ d.steps_kicker }}</span>
+      <h2 class="h2--big">{{ d.steps_title }}</h2>
+      <p class="lead">{{ d.steps_text }}</p>
+    </div>
+    <ol class="steps__list" data-aos-stagger>
+      {% for st in d.steps %}
+      <li class="step{% if loop.index == 2 %} step--active{% endif %}">
+        <span class="step__bar"></span>
+        <div class="step__body">
+          <span class="step__num">{{ st.num }}</span>
+          <h3>{{ st.title }}</h3>
+          <p>{{ st.text }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+/* ==========================================================================
+   HARDWARIO Academy — styl podle Figma návrhu (Web.fig)
+   ========================================================================== */
+
+/* Base */
+@import "base/tokens.css";
+@import "base/reset.css";
+@import "base/typography.css";
+@import "base/layout.css";
+@import "base/animations.css";
+
+/* Components — UI atoms */
+@import "components/ui.css";
+
+/* Components — page chrome */
+@import "components/header.css";
+@import "components/footer.css";
+
+/* Components — sections (in page order) */
+@import "components/hero.css";
+@import "components/features.css";
+@import "components/about.css";
+@import "components/courses.css";
+@import "components/steps.css";
+@import "components/packages.css";
+@import "components/faq.css";
+@import "components/resources.css";
+@import "components/contact.css";
+
+/* Responsive overrides last */
+@import "base/responsive.css";

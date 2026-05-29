@@ -1,0 +1,38 @@
+{% import "macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="description" content="{% if section %}{{ section.description | default(value=config.description) }}{% elif page %}{{ page.description | default(value=config.description) }}{% else %}{{ config.description }}{% endif %}">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}">
+  <link rel="icon" href="{{ get_url(path='img/favicon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+
+  {% include "partials/header.html" %}
+
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
+
+  {% include "partials/footer.html" %}
+
+  <script src="{{ get_url(path='js/main.js') }}" defer></script>
+</body>
+</html>

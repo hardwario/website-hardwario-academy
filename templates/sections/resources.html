@@ -1,0 +1,22 @@
+{% import "macros.html" as macros %}
+
+<section class="resources">
+  <div class="container">
+    <div class="section-head section-head--center" data-aos="fade-up">
+      <span class="kicker">{{ d.resources_kicker }}</span>
+      <h2 class="h2--big">{{ d.resources_title }}</h2>
+      <p class="lead lead--narrow">{{ d.resources_text }}</p>
+    </div>
+    <div class="resources__grid" data-aos-stagger>
+      {% for r in d.resources %}
+      <article class="resource-card">
+        <img class="resource-card__decor" src="{{ get_url(path='img/resource-decor.png') }}" alt="" aria-hidden="true">
+        <span class="resource-card__tag">{{ r.tag }}</span>
+        <h3>{{ r.title }}</h3>
+        <p>{{ r.text }}</p>
+        <a href="#" class="link-arrow">{{ r.link }} {{ macros::arrow() }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

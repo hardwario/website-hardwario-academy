@@ -1,0 +1,14 @@
+/* ==========================================================================
+   About — "Co je to TOWER"
+   ========================================================================== */
+
+.about { padding: 100px 0; }
+.about__inner {
+  display: grid; grid-template-columns: 755px 1fr; gap: 143px;
+  align-items: center;
+}
+.about__media img { width: 100%; border-radius: var(--radius); }
+.about__copy { display: flex; flex-direction: column; gap: 24px; }
+.about__copy .h2--big { font-weight: 600; }
+.about__copy .check-list { margin-top: 8px; }
+.about__cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }

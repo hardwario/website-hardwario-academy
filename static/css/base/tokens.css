@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Design tokens — brand colours (theme-independent) + semantic colours
+   that switch between light and dark theme.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand / accents ---- */
+  --red:        #e30427;
+  --red-80:     rgba(227, 4, 39, .8);
+  --red-soft:   rgba(227, 4, 39, .2);
+  --rose:       #f43f5e;
+  --pink:       #e3047c;
+  --blue:       #06367a;
+
+  /* Data colours */
+  --c-orange:   #ff8d28;
+  --c-cyan:     #00c0e8;
+  --c-green:    #34c759;
+  --c-purple:   #cb30e0;
+
+  /* Always-dark surfaces */
+  --dark-1a:    #1a1a22;
+  --dark-teal:  #061920;
+  --dark-33:    #333333;
+  --gray-80:    #808080;
+  --gray-b3:    #b3b3b3;
+  --gray-f2:    #f2f2f2;
+  --gray-6b:    #6b6a6a;
+
+  /* ---- Semantic — LIGHT theme ---- */
+  --bg:            #ffffff;
+  --surface:       #ffffff;
+  --surface-alt:   #f1faff;
+  --heading:       #000000;
+  --heading-ink:   #252532;
+  --text:          #252532;
+  --text-strong:   #1a1a1a;
+  --text-soft:     rgba(37, 37, 50, .9);
+  --text-mute:     rgba(37, 37, 50, .7);
+  --text-faint:    rgba(37, 37, 50, .5);
+  --muted:         #4d4d4d;
+  --border:        #e6e6e6;
+  --border-soft:   #f2f2f2;
+  --border-hair:   #f3f4f6;
+  --nav:           #374151;
+  --input-bg:      #ffffff;
+  --input-bd:      #d1d5db;
+  --header-bg:     rgba(255, 255, 255, .92);
+  --footer-bg:     #252532;
+  --footer-text:   #d1d5db;
+  --package-feat-bg: #252532;
+  --logo-2:        #6b6a6a;
+  --shadow-sm:     0 6px 18px rgba(16, 16, 30, .06);
+  --shadow-md:     0 18px 40px rgba(16, 16, 30, .10);
+
+  /* Layout */
+  --container: 1640px;
+  --radius: 16px;
+}
+
+/* ---- Semantic — DARK theme ---- */
+[data-theme="dark"] {
+  --bg:            #0f0f14;
+  --surface:       #1a1a22;
+  --surface-alt:   #15151d;
+  --heading:       #ffffff;
+  --heading-ink:   #f3f3f6;
+  --text:          #e7e7ee;
+  --text-strong:   #f5f5f8;
+  --text-soft:     rgba(231, 231, 238, .9);
+  --text-mute:     rgba(231, 231, 238, .64);
+  --text-faint:    rgba(231, 231, 238, .45);
+  --muted:         #a9a9b6;
+  --border:        #2b2b36;
+  --border-soft:   #24242e;
+  --border-hair:   #20202a;
+  --nav:           #c8c8d3;
+  --input-bg:      #1a1a22;
+  --input-bd:      #34343f;
+  --header-bg:     rgba(15, 15, 20, .9);
+  --footer-bg:     #14141c;
+  --footer-text:   #b9b9c6;
+  --package-feat-bg: #23232f;
+  --logo-2:        #c8c8d3;
+  --shadow-sm:     0 6px 18px rgba(0, 0, 0, .45);
+  --shadow-md:     0 18px 40px rgba(0, 0, 0, .55);
+}
+
+body,
+.site-header,
+.course-card,
+.package,
+.resource-card,
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}

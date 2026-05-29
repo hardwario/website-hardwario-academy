@@ -1,0 +1,19 @@
+{% import "macros.html" as macros %}
+
+<section class="features" id="proc-tower">
+  <div class="container">
+    <div class="section-head section-head--center" data-aos="fade-up">
+      <span class="kicker kicker--xs">{{ d.features_kicker }}</span>
+      <h2 class="h2--mid">{{ d.features_title }}</h2>
+    </div>
+    <div class="features__grid" data-aos-stagger>
+      {% for f in d.features %}
+      <div class="feature">
+        <div class="feature__icon">{{ macros::feature_icon(name=f.icon) }}</div>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

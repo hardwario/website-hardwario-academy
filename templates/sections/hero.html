@@ -1,0 +1,32 @@
+{% import "macros.html" as macros %}
+
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy" data-aos="fade-right">
+      <h1 class="hero__title">
+        {{ d.hero_title_1 }}<br>
+        <span class="hero__hl">{{ d.hero_title_2 }}<br>{{ d.hero_title_3 }}</span>
+      </h1>
+      <p class="hero__text">{{ d.hero_text }}</p>
+      <div class="hero__cta">
+        <a href="#balicky" class="btn btn--primary">{{ d.hero_cta_primary }}</a>
+        <a href="#kontakt" class="btn btn--outline">{{ d.hero_cta_secondary }}</a>
+      </div>
+    </div>
+    <div class="hero__visual" data-aos="fade-left" data-aos-delay="150">
+      <img src="{{ get_url(path='img/hero-product.png') }}" alt="Moduly HARDWARIO TOWER" loading="eager">
+    </div>
+  </div>
+
+  <div class="stats-wrap">
+    <div class="container stats" data-aos-stagger>
+      {% for s in d.stats %}
+      <div class="stats__item">
+        <div class="stats__value">{{ s.value }}</div>
+        <div class="stats__label">{{ s.label }}</div>
+      </div>
+      {% if not loop.last %}<span class="stats__divider"></span>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

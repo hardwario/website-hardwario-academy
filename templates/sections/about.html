@@ -1,0 +1,23 @@
+{% import "macros.html" as macros %}
+
+<section class="about" id="tower">
+  <div class="container about__inner">
+    <div class="about__media" data-aos="fade-right">
+      <img src="{{ get_url(path='img/tower-modules.png') }}" alt="HARDWARIO TOWER LCD Module">
+    </div>
+    <div class="about__copy" data-aos="fade-left">
+      <span class="kicker">{{ d.about_kicker }}</span>
+      <h2 class="h2--big">{{ d.about_title }}</h2>
+      <p class="lead">{{ d.about_text }}</p>
+      <ul class="check-list">
+        {% for m in d.about_modules %}
+        <li>{{ macros::check() }}<span><strong>{{ m.name }}</strong> {{ m.text }}</span></li>
+        {% endfor %}
+      </ul>
+      <div class="about__cta">
+        <a href="#" class="btn btn--primary">{{ d.about_cta_primary }}</a>
+        <a href="#kurzy" class="btn btn--outline">{{ d.about_cta_secondary }}</a>
+      </div>
+    </div>
+  </div>
+</section>

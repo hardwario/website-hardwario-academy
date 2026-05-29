@@ -1,0 +1,28 @@
+{% import "macros.html" as macros %}
+
+<section class="packages" id="balicky">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="kicker">{{ d.packages_kicker }}</span>
+      <h2 class="h2--big">{{ d.packages_title }}</h2>
+    </div>
+    <div class="packages__grid" data-aos-stagger>
+      {% for p in d.packages %}
+      <article class="package{% if p.featured %} package--featured{% endif %}">
+        {% if p.featured %}<span class="package__flag">DOPORUČUJEME</span>{% endif %}
+        <div class="package__head">
+          <span class="package__tier">{{ p.tier }}</span>
+          <h3>{{ p.name }}</h3>
+          <p class="package__desc">{{ p.desc }}</p>
+        </div>
+        <ul class="check-list check-list--tight">
+          {% for f in p.features %}
+          <li>{{ macros::check() }}<span>{{ f }}</span></li>
+          {% endfor %}
+        </ul>
+        <a href="#kontakt" class="btn btn--block {% if p.featured %}btn--outline-light{% else %}btn--primary{% endif %}">{{ p.cta }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

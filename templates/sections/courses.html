@@ -1,0 +1,59 @@
+{% import "macros.html" as macros %}
+
+<section class="courses" id="kurzy">
+  <div class="container">
+    <div class="section-head section-head--row" data-aos="fade-up">
+      <div>
+        <span class="kicker">{{ d.courses_kicker }}</span>
+        <h2 class="h2--big">{{ d.courses_title }}</h2>
+      </div>
+      <a href="#" class="link-arrow">{{ d.courses_link }} {{ macros::arrow() }}</a>
+    </div>
+
+    <div class="courses__grid">
+      <article class="course-feature" data-aos="zoom-in">
+        <div class="course-feature__top">
+          <div class="course-feature__copy">
+            <span class="badge badge--rose">{{ d.featured_course.badge }}</span>
+            <h3>{{ d.featured_course.title }}</h3>
+            <p>{{ d.featured_course.text }}</p>
+            <div class="chips">
+              {% for t in d.featured_course.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+            </div>
+          </div>
+          <div class="dashboard" data-dashboard>
+            <h4>{{ d.featured_course.dash_title }}</h4>
+            <div class="dashboard__grid">
+              {% for m in d.featured_metrics %}
+              <button type="button" class="metric" data-metric-block aria-label="{{ m.label }} – přepnout režim">
+                <span class="metric__label">{{ m.label }}</span>
+                <div class="metric__value"><strong class="metric--{{ m.color }}" data-metric="{{ loop.index0 }}">{{ d.featured_modes[0].values[loop.index0] }}</strong><small>{{ m.unit }}</small></div>
+              </button>
+              {% endfor %}
+            </div>
+            <div class="dashboard__actions" role="group" aria-label="Režim učebny">
+              {% for mode in d.featured_modes %}
+              <button type="button" class="pill{% if mode.active %} pill--active{% endif %}" data-values="{{ mode.values | json_encode }}" aria-pressed="{{ mode.active }}">{{ mode.label }}</button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="course-feature__note">
+          <p>{{ d.featured_course.note }}</p>
+          <a href="#" class="link-arrow link-arrow--rose">{{ d.featured_course.note_link }} {{ macros::arrow() }}</a>
+        </div>
+      </article>
+
+      {% for c in d.courses %}
+      <article class="course-card" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 80 }}">
+        <div class="course-card__head">
+          <span class="badge badge--{{ c.level }}">{{ c.badge }}</span>
+        </div>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+        <a href="#" class="link-arrow course-card__link">{{ d.course_link }} {{ macros::arrow() }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

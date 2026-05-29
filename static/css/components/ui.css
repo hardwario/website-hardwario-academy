@@ -1,0 +1,71 @@
+/* ==========================================================================
+   UI atoms — buttons, arrow links, check dots, badges, chips
+   ========================================================================== */
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease,
+              background .15s, color .15s, border-color .15s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
+.btn--block { width: 100%; }
+.btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn--primary:hover { filter: brightness(1.12); box-shadow: 0 8px 20px rgba(6, 54, 122, .28); }
+.btn--outline { background: transparent; border-color: var(--text); color: var(--text); }
+.btn--outline:hover { background: var(--text); color: var(--bg); }
+.btn--outline-light { background: transparent; border-color: #fff; color: #fff; }
+.btn--outline-light:hover { background: #fff; color: var(--dark-1a); }
+
+/* ---- Arrow links ---- */
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--red); font-weight: 600; font-size: 16px;
+  letter-spacing: -.01em;
+  transition: gap .15s ease;
+}
+.link-arrow .arrow { width: 7px; height: 12px; transition: transform .15s ease; }
+.link-arrow:hover { gap: 10px; }
+.link-arrow--rose { color: var(--rose); }
+
+/* ---- Check dot + list ---- */
+.check-dot {
+  flex: none; width: 20px; height: 20px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--red); border-radius: 999px;
+}
+.check-dot svg { width: 11px; height: 11px; }
+.check-list { display: flex; flex-direction: column; gap: 16px; }
+.check-list li { display: flex; gap: 16px; align-items: flex-start; }
+.check-list li span { font-size: 16px; line-height: 26px; color: var(--text-soft); }
+.check-list li strong { color: var(--text); font-weight: 600; }
+.check-list--tight { gap: 8px; }
+.check-list--tight li span { font-weight: 400; }
+
+/* ---- Badges & chips ---- */
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 4px 16px; border-radius: var(--radius);
+  font-size: 12px; font-weight: 600; color: #fff;
+  letter-spacing: -.02em; line-height: 20px;
+}
+.badge--beginner { background: var(--c-green); }
+.badge--advanced { background: var(--c-orange); }
+.badge--rose { background: var(--rose); color: var(--gray-f2); }
+
+.chip {
+  display: inline-flex; align-items: center;
+  padding: 8px 16px; border-radius: var(--radius);
+  background: var(--dark-33); border: 1px solid var(--gray-80);
+  color: var(--gray-f2); font-size: 12px; font-weight: 600; letter-spacing: -.02em;
+}

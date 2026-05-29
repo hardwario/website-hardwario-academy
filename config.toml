@@ -1,0 +1,19 @@
+# HARDWARIO Academy — Zola configuration
+base_url = "https://academy.hardwario.com"
+title = "HARDWARIO Academy"
+description = "Učte IoT prakticky. Bez pájení, bez teorie navíc."
+
+default_language = "cs"
+
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+phone = "+420 775 159 734"
+phone_href = "tel:+420775159734"
+email = "academy@hardwario.com"
+year = 2026

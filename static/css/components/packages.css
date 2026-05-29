@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Packages — "Balíčky pro školy"
+   ========================================================================== */
+
+.packages { background: var(--surface-alt); padding: 128px 0; }
+.packages .section-head { text-align: left; }
+.packages__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 64px; align-items: stretch; }
+
+.package {
+  position: relative;
+  display: flex; flex-direction: column; gap: 40px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 40px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.package:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.package--featured { background: var(--package-feat-bg); border-color: var(--package-feat-bg); color: #fff; }
+.package__flag {
+  position: absolute; top: -14px; left: 40px;
+  background: var(--red); color: #fff;
+  padding: 4px 8px; border-radius: 999px;
+  font-size: 12px; font-weight: 700;
+}
+.package__head { display: flex; flex-direction: column; gap: 16px; }
+.package__tier { color: var(--red); font-size: 14px; font-weight: 700; line-height: 23px; }
+.package h3 { font-family: "Roboto", "Inter", sans-serif; font-size: 32px; font-weight: 600; line-height: 40px; letter-spacing: 0; color: var(--heading); }
+.package--featured h3 { color: #fff; }
+.package__desc { font-size: 16px; line-height: 26px; color: var(--text-soft); }
+.package--featured .package__desc { color: rgba(255, 255, 255, .9); }
+.package--featured .check-list li span { color: rgba(255, 255, 255, .9); }
+.package .check-list { flex: 1; }
+.package .btn { margin-top: auto; }

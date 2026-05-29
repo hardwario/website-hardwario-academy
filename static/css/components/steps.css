@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Steps — "Cesta pro učitele"
+   ========================================================================== */
+
+.steps { padding: 80px 0; }
+.steps__inner { display: grid; grid-template-columns: 1fr 570px; gap: 80px; align-items: center; }
+.steps__copy { display: flex; flex-direction: column; gap: 24px; }
+.steps__list { display: flex; flex-direction: column; gap: 64px; }
+.step { display: flex; gap: 24px; }
+.step__bar { width: 2px; background: var(--border); border-radius: 2px; flex: none; transition: background .25s; }
+.step--active .step__bar { background: var(--red); }
+.step__body { display: flex; flex-direction: column; gap: 16px; }
+.step__num { font-size: 60px; font-weight: 700; line-height: 1; color: var(--red); letter-spacing: -.025em; }
+.step h3 { font-size: 20px; font-weight: 700; color: var(--heading); text-transform: uppercase; letter-spacing: -.05em; }
+.step p { font-size: 16px; line-height: 26px; color: var(--text-soft); }

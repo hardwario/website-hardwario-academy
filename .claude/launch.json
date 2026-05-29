@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zola",
+      "runtimeExecutable": "C:\\Users\\zerrk\\AppData\\Local\\Microsoft\\WinGet\\Packages\\getzola.zola_Microsoft.Winget.Source_8wekyb3d8bbwe\\zola.exe",
+      "runtimeArgs": ["serve", "--interface", "127.0.0.1", "--port", "1111"],
+      "port": 1111
+    }
+  ]
+}
