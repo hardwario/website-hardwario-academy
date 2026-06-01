@@ -3,13 +3,15 @@
 <section class="steps" id="pro-ucitele">
   <div class="container steps__inner">
     <div class="steps__copy" data-aos="fade-right">
-      <span class="kicker">{{ d.steps_kicker }}</span>
-      <h2 class="h2--big">{{ d.steps_title }}</h2>
-      <p class="lead">{{ d.steps_text }}</p>
+      <div class="steps__sticky">
+        <span class="kicker">{{ d.steps_kicker }}</span>
+        <h2 class="h2--big">{{ d.steps_title }}</h2>
+        <p class="lead">{{ d.steps_text }}</p>
+      </div>
     </div>
-    <ol class="steps__list" data-aos-stagger>
+    <ol class="steps__list">
       {% for st in d.steps %}
-      <li class="step{% if loop.index == 2 %} step--active{% endif %}">
+      <li class="step{% if loop.first %} step--active{% endif %}" data-step data-index="{{ loop.index0 }}">
         <span class="step__bar"></span>
         <div class="step__body">
           <span class="step__num">{{ st.num }}</span>

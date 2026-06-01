@@ -220,3 +220,38 @@
 
   els.forEach((el) => io.observe(el));
 })();
+
+/* ── Cesta pro učitele: aktivní krok = ten, jehož střed je nejblíž středu
+   obrazovky (přepíná červenou čáru, stejně jako initStickyPlan na webu) ── */
+(function () {
+  const list = document.querySelector(".steps__list");
+  if (!list) return;
+  const steps = Array.from(list.querySelectorAll(".step"));
+  if (!steps.length) return;
+
+  let active = -1;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const focusY = window.innerHeight * 0.5; // střed obrazovky
+    let best = 0;
+    let bestDist = Infinity;
+    steps.forEach((step, i) => {
+      const rect = step.getBoundingClientRect();
+      const dist = Math.abs(rect.top + rect.height / 2 - focusY);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    if (best === active) return;
+    active = best;
+    steps.forEach((step, i) => step.classList.toggle("step--active", i === best));
+  }
+
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+})();

@@ -1,15 +1,65 @@
 /* ==========================================================================
-   Steps — "Cesta pro učitele"
+   Steps — "Cesta pro učitele" (sticky scroll, aktivní krok dle pozice)
    ========================================================================== */
 
 .steps { padding: 80px 0; }
-.steps__inner { display: grid; grid-template-columns: 1fr 570px; gap: 80px; align-items: center; }
-.steps__copy { display: flex; flex-direction: column; gap: 24px; }
-.steps__list { display: flex; flex-direction: column; gap: 64px; }
-.step { display: flex; gap: 24px; }
-.step__bar { width: 2px; background: var(--border); border-radius: 2px; flex: none; transition: background .25s; }
+
+/* align-items: stretch (výchozí) => levý sloupec se roztáhne na výšku
+   pravého, aby uvnitř mohl fungovat sticky nadpis. */
+.steps__inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 80px;
+  align-items: stretch;
+}
+
+/* Levý sloupec — nadpis přišpendlený na střed obrazovky (čistý CSS sticky,
+   stejně jako hardwario.com). Stojí, zatímco kroky vpravo rolují kolem něj. */
+.steps__sticky {
+  position: sticky;
+  top: calc(50vh - 120px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Pravý sloupec — kroky se dlouze rolují */
+.steps__list {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding: 80px 0;
+}
+.step:first-child { padding-top: 0; }
+.step:last-child  { padding-bottom: 0; }
+
+/* Svislá čára — šedá, u aktivního kroku červená */
+.step__bar {
+  flex: none;
+  align-self: flex-start;
+  width: 2px;
+  height: 96px;
+  margin-top: 6px;
+  background: var(--border);
+  border-radius: 2px;
+  transition: background .3s ease;
+}
 .step--active .step__bar { background: var(--red); }
-.step__body { display: flex; flex-direction: column; gap: 16px; }
+
+.step__body { display: flex; flex-direction: column; gap: 16px; max-width: 460px; }
 .step__num { font-size: 60px; font-weight: 700; line-height: 1; color: var(--red); letter-spacing: -.025em; }
 .step h3 { font-size: 20px; font-weight: 700; color: var(--heading); text-transform: uppercase; letter-spacing: -.05em; }
 .step p { font-size: 16px; line-height: 26px; color: var(--text-soft); }
+
+/* Tablet/mobil: jeden sloupec, žádný sticky ani dlouhý scroll */
+@media (max-width: 1280px) {
+  .steps__sticky { position: static; top: auto; }
+  .steps__list { padding-top: 0; gap: 64px; }
+  .step { padding: 0; opacity: 1; }
+}
