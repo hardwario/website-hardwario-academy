@@ -13,17 +13,14 @@
   font-weight: 600;
   border: 1px solid transparent;
   white-space: nowrap;
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease,
-              background .15s, color .15s, border-color .15s;
+  transition: filter .15s ease, background .15s, color .15s, border-color .15s;
 }
-.btn:hover { transform: translateY(-2px); }
-.btn:active { transform: translateY(0); }
 .btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
 .btn--block { width: 100%; }
 .btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
-.btn--primary:hover { filter: brightness(1.12); box-shadow: 0 8px 20px rgba(6, 54, 122, .28); }
+.btn--primary:hover { background: var(--dark-1a); border-color: var(--dark-1a); }
 .btn--outline { background: transparent; border-color: var(--text); color: var(--text); }
-.btn--outline:hover { background: var(--text); color: var(--bg); }
+.btn--outline:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
 .btn--outline-light { background: transparent; border-color: #fff; color: #fff; }
 .btn--outline-light:hover { background: #fff; color: var(--dark-1a); }
 

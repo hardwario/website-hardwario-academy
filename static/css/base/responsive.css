@@ -2,21 +2,23 @@
    Responsive — layout breakpoints
    ========================================================================== */
 
+@media (max-width: 1620px) {
+  .container { padding-inline: 80px; }
+}
+
 @media (max-width: 1280px) {
   :root { --container: 100%; }
-  .hero__title { font-size: 64px; }
-  .h2--big { font-size: 48px; }
+  .hero__title { font-size: 40px; }
+  .h2--big { font-size: 36px; }
   .h2--mid { font-size: 36px; }
   .hero__inner { grid-template-columns: 1fr 1fr; gap: 48px; }
   .about__inner { grid-template-columns: 1fr 1fr; gap: 56px; }
   .steps__inner, .faq__inner, .contact__inner { grid-template-columns: 1fr; gap: 56px; }
   .resources__grid { gap: 32px; }
   .packages__grid { gap: 32px; }
-  .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
-  .footer-col--logo { grid-column: span 3; }
-}
+  .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 40px 32px; }
+  .footer-col--logo { grid-column: span 4; }
 
-@media (max-width: 960px) {
   .main-nav { display: none; }
   .main-nav.is-open {
     display: flex; flex-direction: column; align-items: stretch; gap: 2px;
@@ -27,30 +29,30 @@
   .main-nav.is-open > a { padding: 12px 16px; font-size: 16px; }
   .main-nav.is-open .nav__controls { display: flex; }
   .nav-toggle { display: flex; }
-
   .site-header__actions .theme-toggle,
   .site-header__actions .lang-switch,
   .site-header__actions .btn { display: none; }
+}
+
+@media (max-width: 960px) {
   .features__grid { grid-template-columns: repeat(2, 1fr); }
   .courses__grid { grid-template-columns: 1fr 1fr; }
   .course-feature { grid-column: span 2; grid-row: auto; }
   .packages__grid { grid-template-columns: 1fr; max-width: 520px; }
-  .stats { flex-wrap: wrap; }
-  .stats__divider { display: none; }
-  .stats__item { flex: 1 1 40%; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .stats__value { font-size: 38px; }
 }
 
 @media (max-width: 720px) {
-  .container { padding-inline: 20px; }
+  .container { padding-inline: 28px; }
 
-  .logo__svg { height: 26px; }
   .site-header__inner { gap: 12px; }
 
   .hero { padding-top: 40px; }
   .hero__inner { grid-template-columns: 1fr; }
-  .hero__title { font-size: 44px; }
+  .hero__title { font-size: 34px; }
   .hero__copy { gap: 32px; }
-  .h2--big { font-size: 36px; }
+  .h2--big { font-size: 30px; }
   .h2--mid { font-size: 28px; }
 
   .features, .packages { padding: 64px 0; }

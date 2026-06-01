@@ -19,7 +19,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.1; letter-spacing: -.02em; col
   text-transform: uppercase;
 }
 
-.h2--big { font-size: 65px; line-height: 1.05; font-weight: 600; color: var(--heading); letter-spacing: -.01em; }
+.h2--big { font-size: 40px; line-height: 1.1; font-weight: 600; color: var(--heading); letter-spacing: -.01em; }
 .h2--mid { font-size: 48px; line-height: 1; font-weight: 700; color: var(--heading-ink); letter-spacing: -.02em; }
 .h2--ink { color: var(--heading-ink); font-weight: 700; }
 

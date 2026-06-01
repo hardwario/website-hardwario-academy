@@ -26,6 +26,7 @@
 @import "components/faq.css";
 @import "components/resources.css";
 @import "components/contact.css";
+@import "components/testimonials.css";
 
 /* Responsive overrides last */
 @import "base/responsive.css";

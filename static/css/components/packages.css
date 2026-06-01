@@ -13,7 +13,7 @@
   border-radius: var(--radius); padding: 40px;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.package:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.package:hover { border-color: var(--gray-6b); }
 .package--featured { background: var(--package-feat-bg); border-color: var(--package-feat-bg); color: #fff; }
 .package__flag {
   position: absolute; top: -14px; left: 40px;

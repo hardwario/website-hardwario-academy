@@ -1,17 +1,36 @@
 {% import "macros.html" as macros %}
 
 <section class="about" id="tower">
-  <div class="container about__inner">
+  <div class="container about__inner" data-slider>
     <div class="about__media" data-aos="fade-right">
-      <img src="{{ get_url(path='img/tower-modules.png') }}" alt="HARDWARIO TOWER LCD Module">
+      <div class="tower-slider">
+        <div class="tower-slider__viewport">
+          {% for s in d.about_slides %}
+          <div class="tower-slider__slide{% if loop.first %} is-active{% endif %}" data-slide>
+            <img src="{{ get_url(path='img/' ~ s.image ~ '.avif') }}" alt="{{ s.name }}" loading="lazy" width="755" height="797">
+          </div>
+          {% endfor %}
+        </div>
+        <div class="tower-slider__controls">
+          <button class="tower-slider__btn" type="button" data-slider-prev aria-label="Předchozí">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="tower-slider__btn" type="button" data-slider-next aria-label="Další">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="about__copy" data-aos="fade-left">
       <span class="kicker">{{ d.about_kicker }}</span>
       <h2 class="h2--big">{{ d.about_title }}</h2>
       <p class="lead">{{ d.about_text }}</p>
-      <ul class="check-list">
-        {% for m in d.about_modules %}
-        <li>{{ macros::check() }}<span><strong>{{ m.name }}</strong> {{ m.text }}</span></li>
+      <ul class="set-list">
+        {% for s in d.about_slides %}
+        <li class="set-list__item{% if loop.first %} is-active{% endif %}" data-slide-to="{{ loop.index0 }}">
+          <strong>{{ s.name }}</strong>
+          <span>{{ s.desc }}</span>
+        </li>
         {% endfor %}
       </ul>
       <div class="about__cta">

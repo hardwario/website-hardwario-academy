@@ -4,8 +4,6 @@
 
 .steps { padding: 80px 0; }
 
-/* align-items: stretch (výchozí) => levý sloupec se roztáhne na výšku
-   pravého, aby uvnitř mohl fungovat sticky nadpis. */
 .steps__inner {
   display: grid;
   grid-template-columns: 2fr 3fr;
@@ -13,8 +11,6 @@
   align-items: stretch;
 }
 
-/* Levý sloupec — nadpis přišpendlený na střed obrazovky (čistý CSS sticky,
-   stejně jako hardwario.com). Stojí, zatímco kroky vpravo rolují kolem něj. */
 .steps__sticky {
   position: sticky;
   top: calc(50vh - 120px);
@@ -23,7 +19,6 @@
   gap: 24px;
 }
 
-/* Pravý sloupec — kroky se dlouze rolují */
 .steps__list {
   display: flex;
   flex-direction: column;
@@ -39,7 +34,6 @@
 .step:first-child { padding-top: 0; }
 .step:last-child  { padding-bottom: 0; }
 
-/* Svislá čára — šedá, u aktivního kroku červená */
 .step__bar {
   flex: none;
   align-self: flex-start;
@@ -57,7 +51,6 @@
 .step h3 { font-size: 20px; font-weight: 700; color: var(--heading); text-transform: uppercase; letter-spacing: -.05em; }
 .step p { font-size: 16px; line-height: 26px; color: var(--text-soft); }
 
-/* Tablet/mobil: jeden sloupec, žádný sticky ani dlouhý scroll */
 @media (max-width: 1280px) {
   .steps__sticky { position: static; top: auto; }
   .steps__list { padding-top: 0; gap: 64px; }

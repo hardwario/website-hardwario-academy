@@ -1,6 +1,6 @@
 {% import "macros.html" as macros %}
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="{{ lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}">
+  {%- set css_files = [
+    "base/tokens.css", "base/reset.css", "base/typography.css", "base/layout.css", "base/animations.css",
+    "components/ui.css", "components/header.css", "components/footer.css",
+    "components/hero.css", "components/features.css", "components/about.css", "components/courses.css",
+    "components/steps.css", "components/packages.css", "components/faq.css", "components/resources.css",
+    "components/contact.css", "components/testimonials.css",
+    "base/responsive.css"
+  ] -%}
+  {% for f in css_files %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
+  {% endfor %}
   <link rel="icon" href="{{ get_url(path='img/favicon.svg') }}" type="image/svg+xml">
 </head>
 <body>
@@ -33,6 +42,6 @@
 
   {% include "partials/footer.html" %}
 
-  <script src="{{ get_url(path='js/main.js') }}" defer></script>
+  <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
 </body>
 </html>

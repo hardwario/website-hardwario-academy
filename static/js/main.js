@@ -1,6 +1,3 @@
-// HARDWARIO Academy — interaktivita stránky
-
-/* ── Téma (dark / light) ── */
 (function () {
   const root = document.documentElement;
   const toggles = document.querySelectorAll(".theme-toggle");
@@ -9,12 +6,11 @@
   function paint(theme) {
     const dark = theme === "dark";
     toggles.forEach((t) => {
-      const moon = t.querySelector(".theme-toggle__moon");
-      const sun = t.querySelector(".theme-toggle__sun");
       const label = t.querySelector(".theme-toggle__label");
-      if (moon) moon.hidden = dark;
-      if (sun) sun.hidden = !dark;
-      if (label) label.textContent = dark ? "Světlý režim" : "Tmavý režim";
+      const en = document.documentElement.lang === "en";
+      if (label) label.textContent = dark
+        ? (en ? "Light mode" : "Světlý režim")
+        : (en ? "Dark mode" : "Tmavý režim");
       t.setAttribute("aria-pressed", String(dark));
     });
   }
@@ -30,7 +26,6 @@
   );
 })();
 
-/* ── Mobilní navigace ──────────────────────────────────────────────────── */
 (function () {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".main-nav");
@@ -48,7 +43,6 @@
   );
 })();
 
-/* ── FAQ akordeon ── */
 (function () {
   const items = document.querySelectorAll(".faq-item");
   items.forEach((item) => {
@@ -60,7 +54,6 @@
   });
 })();
 
-/* ── Dashboard featured kurzu ── */
 (function () {
   document.querySelectorAll("[data-dashboard]").forEach((dash) => {
     const pills = Array.from(dash.querySelectorAll(".pill"));
@@ -94,7 +87,6 @@
   });
 })();
 
-/* ── Custom select ── */
 (function () {
   let uid = 0;
   document.querySelectorAll(".contact-form select").forEach((native) => {
@@ -190,7 +182,6 @@
   });
 })();
 
-/* ── Animace při scrollování ── */
 (function () {
   const els = document.querySelectorAll("[data-aos], [data-aos-stagger]");
   if (!els.length) return;
@@ -221,8 +212,6 @@
   els.forEach((el) => io.observe(el));
 })();
 
-/* ── Cesta pro učitele: aktivní krok = ten, jehož střed je nejblíž středu
-   obrazovky (přepíná červenou čáru, stejně jako initStickyPlan na webu) ── */
 (function () {
   const list = document.querySelector(".steps__list");
   if (!list) return;
@@ -234,7 +223,7 @@
 
   function update() {
     ticking = false;
-    const focusY = window.innerHeight * 0.5; // střed obrazovky
+    const focusY = window.innerHeight * 0.5;
     let best = 0;
     let bestDist = Infinity;
     steps.forEach((step, i) => {
@@ -254,4 +243,156 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   update();
+})();
+
+(function () {
+  document.querySelectorAll("[data-slider]").forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll("[data-slide]"));
+    if (slides.length <= 1) return;
+    const items = Array.from(slider.querySelectorAll("[data-slide-to]"));
+    const prev = slider.querySelector("[data-slider-prev]");
+    const next = slider.querySelector("[data-slider-next]");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let i = 0;
+    let timer = null;
+
+    function render() {
+      slides.forEach((s, idx) => s.classList.toggle("is-active", idx === i));
+      items.forEach((it, idx) => it.classList.toggle("is-active", idx === i));
+    }
+    function go(n) { i = (n + slides.length) % slides.length; render(); }
+    function start() { stop(); if (!reduce) timer = setInterval(() => go(i + 1), 5000); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    if (prev) prev.addEventListener("click", () => { go(i - 1); start(); });
+    if (next) next.addEventListener("click", () => { go(i + 1); start(); });
+    items.forEach((it, idx) => it.addEventListener("click", () => { go(idx); start(); }));
+
+    [slider.querySelector(".about__media"), slider.querySelector(".set-list")].forEach((el) => {
+      if (!el) return;
+      el.addEventListener("mouseenter", stop);
+      el.addEventListener("mouseleave", start);
+    });
+
+    let x0 = null;
+    const vp = slider.querySelector(".tower-slider__viewport") || slider;
+    vp.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    vp.addEventListener("touchend", (e) => {
+      if (x0 !== null) {
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+        x0 = null;
+      }
+      start();
+    }, { passive: true });
+
+    render();
+    start();
+  });
+})();
+
+(function () {
+  document.querySelectorAll("[data-marquee]").forEach((m) => {
+    const track = m.querySelector(".marquee__track");
+    if (!track) return;
+    const vp = m.querySelector(".marquee__viewport") || m;
+    const prev = m.querySelector("[data-marquee-prev]");
+    const next = m.querySelector("[data-marquee-next]");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mobile = matchMedia("(max-width: 720px)");
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const SPEED = 0.6;
+
+    let paused = false;
+    let raf = null;
+    let offset = 0;
+    function period() { return (track.scrollWidth + gap) / 2; }
+    function render() { track.style.transform = "translateX(" + (-offset) + "px)"; }
+    function advance(d) {
+      const p = period();
+      offset = (((offset + d) % p) + p) % p;
+      render();
+    }
+    function step() {
+      if (!paused) advance(SPEED);
+      raf = requestAnimationFrame(step);
+    }
+    const jump = () => Math.min(vp.clientWidth * 0.85, 480);
+    if (prev) prev.addEventListener("click", () => advance(-jump()));
+    if (next) next.addEventListener("click", () => advance(jump()));
+    m.addEventListener("mouseenter", () => { paused = true; });
+    m.addEventListener("mouseleave", () => { paused = false; });
+
+    function setMode() {
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+      offset = 0; render();
+      if (!mobile.matches && !reduce) raf = requestAnimationFrame(step);
+    }
+    setMode();
+    mobile.addEventListener("change", setMode);
+  });
+})();
+
+(function () {
+  const grid = document.querySelector(".courses__grid");
+  const btn = document.querySelector("[data-courses-toggle]");
+  if (!grid || !btn) return;
+  btn.addEventListener("click", () => {
+    const open = grid.classList.toggle("is-expanded");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Zobrazit méně" : "Zobrazit více";
+  });
+})();
+
+(function () {
+  const links = Array.from(document.querySelectorAll('.main-nav > a[href^="#"]'));
+  const map = links
+    .map((a) => ({ a, sec: document.getElementById(a.getAttribute("href").slice(1)) }))
+    .filter((x) => x.sec);
+  if (!map.length) return;
+
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const line = window.innerHeight * 0.3;
+    let active = null;
+    let best = -Infinity;
+    map.forEach((x) => {
+      const top = x.sec.getBoundingClientRect().top;
+      if (top <= line && top > best) { best = top; active = x.a; }
+    });
+    links.forEach((a) => a.classList.toggle("is-active", a === active));
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+})();
+
+(function () {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".logo, .footer-logo").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+  });
+})();
+
+(function () {
+  const current = document.documentElement.lang || "cs";
+  function setCookie(v) {
+    document.cookie = "lang=" + v + ";path=/;max-age=31536000;samesite=lax";
+  }
+  function getCookie() {
+    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en)\b/);
+    return m ? m[1] : null;
+  }
+  document.querySelectorAll("[data-lang-switch]").forEach((el) => {
+    el.addEventListener("click", () => setCookie(el.dataset.langSwitch));
+  });
+  const pref = getCookie();
+  if (pref && pref !== current) {
+    location.replace(pref === "en" ? "/en/" : "/");
+  }
 })();

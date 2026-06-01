@@ -4,8 +4,9 @@
   <div class="container hero__inner">
     <div class="hero__copy" data-aos="fade-right">
       <h1 class="hero__title">
-        {{ d.hero_title_1 }}<br>
-        <span class="hero__hl">{{ d.hero_title_2 }}<br>{{ d.hero_title_3 }}</span>
+        <span class="hero__line">{{ d.hero_title_1 }}</span>
+        <span class="hero__line"><span class="hero__hl">{{ d.hero_title_2 }}</span></span>
+        <span class="hero__line"><span class="hero__red">{{ d.hero_title_3 }}</span></span>
       </h1>
       <p class="hero__text">{{ d.hero_text }}</p>
       <div class="hero__cta">
@@ -25,7 +26,6 @@
         <div class="stats__value">{{ s.value }}</div>
         <div class="stats__label">{{ s.label }}</div>
       </div>
-      {% if not loop.last %}<span class="stats__divider"></span>{% endif %}
       {% endfor %}
     </div>
   </div>

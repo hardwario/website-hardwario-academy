@@ -3,21 +3,21 @@
    ========================================================================== */
 
 .resources { padding: 80px 0; }
-.resources__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px; }
+.resources__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 .resource-card {
   position: relative; overflow: hidden;
   display: flex; flex-direction: column; gap: 32px;
-  background: var(--surface); border: 1px solid var(--heading);
+  background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 32px;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.resource-card:hover { border-color: var(--gray-6b); }
 .resource-card__decor {
-  position: absolute; right: -10px; bottom: -10px;
+  position: absolute; right: -30px; bottom: -40px;
   width: 127px; height: auto; opacity: .7; pointer-events: none;
   transition: transform .3s ease;
 }
-.resource-card:hover .resource-card__decor { transform: scale(1.12) rotate(-6deg); }
+.resource-card:hover .resource-card__decor { opacity: .85; }
 .resource-card__tag { color: var(--red); font-size: 16px; font-weight: 700; line-height: 26px; }
 .resource-card h3 { font-size: 24px; font-weight: 600; color: var(--heading); line-height: 26px; }
 .resource-card p { font-size: 16px; line-height: 26px; color: var(--text-soft); position: relative; z-index: 1; }

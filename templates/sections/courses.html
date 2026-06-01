@@ -45,7 +45,7 @@
       </article>
 
       {% for c in d.courses %}
-      <article class="course-card" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 80 }}">
+      <article class="course-card{% if loop.index0 >= 2 %} course-card--extra{% endif %}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 80 }}">
         <div class="course-card__head">
           <span class="badge badge--{{ c.level }}">{{ c.badge }}</span>
         </div>
@@ -54,6 +54,9 @@
         <a href="#" class="link-arrow course-card__link">{{ d.course_link }} {{ macros::arrow() }}</a>
       </article>
       {% endfor %}
+    </div>
+    <div class="courses__more-row">
+      <button class="btn btn--outline courses__more" type="button" data-courses-toggle aria-expanded="false">Zobrazit více</button>
     </div>
   </div>
 </section>
