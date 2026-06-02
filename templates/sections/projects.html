@@ -1,0 +1,73 @@
+{% import "macros.html" as macros %}
+
+<section class="projects" id="projekty">
+  <div class="container">
+    <div class="section-head section-head--row" data-aos="fade-up">
+      <div>
+        <span class="kicker">{{ d.projects_kicker }}</span>
+        <h2 class="h2--big">{{ d.projects_title }}</h2>
+        <p class="lead lead--narrow">{{ d.projects_text }}</p>
+      </div>
+      <a href="{{ d.projects_link_href }}" target="_blank" rel="noopener noreferrer" class="link-arrow">{{ d.projects_link }} {{ macros::arrow() }}</a>
+    </div>
+
+    {% set fp = d.featured_project %}
+    <article class="project-feature" data-aos="zoom-in">
+      <div class="project-feature__media">
+        <img src="{{ get_url(path='img/projects/' ~ fp.image) }}" alt="{{ fp.title }}" loading="lazy">
+        <a class="project-pkg" href="#balicky" title="{{ d.projects_pkg_label }}: {{ fp.pkg }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>{{ d.projects_pkg_label }}: <strong>{{ fp.pkg }}</strong></a>
+      </div>
+      <div class="project-feature__body">
+        <span class="project-cat project-cat--{{ fp.cat }}">{{ fp.category }}</span>
+        <h3>{{ fp.title }}</h3>
+        <p>{{ fp.text }}</p>
+        <p class="project-benefit"><strong>{{ d.projects_benefit_label }}:</strong> {{ fp.benefit }}</p>
+        <div class="project-kit">
+          <span class="project-kit__label">{% include "partials/icon-kit.html" %} {{ d.projects_kit_label }}</span>
+          {% for k in fp.kit %}<span class="kit-chip">{{ k }}</span>{% endfor %}
+        </div>
+        <a href="{{ fp.link_href }}" target="_blank" rel="noopener noreferrer" class="link-arrow">{{ d.projects_cta }} {{ macros::arrow() }}</a>
+      </div>
+    </article>
+
+    <div class="projects__slider" data-aos="fade-up" data-pslider>
+      <div class="projects__track" data-pslider-track>
+        {% for p in d.projects %}
+        <article class="project-card">
+          <div class="project-card__media">
+            <img src="{{ get_url(path='img/projects/' ~ p.image) }}" alt="{{ p.title }}" loading="lazy">
+            <span class="project-cat project-cat--{{ p.cat }}">{{ p.category }}</span>
+            <a class="project-pkg" href="#balicky" title="{{ d.projects_pkg_label }}: {{ p.pkg }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>{{ d.projects_pkg_label }}: <strong>{{ p.pkg }}</strong></a>
+          </div>
+          <div class="project-card__body">
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.text }}</p>
+            <p class="project-benefit"><strong>{{ d.projects_benefit_label }}:</strong> {{ p.benefit }}</p>
+            <div class="project-kit">
+              <span class="project-kit__label">{% include "partials/icon-kit.html" %} {{ d.projects_kit_label }}</span>
+              {% for k in p.kit %}<span class="kit-chip">{{ k }}</span>{% endfor %}
+            </div>
+            <a href="{{ p.link_href }}" target="_blank" rel="noopener noreferrer" class="link-arrow project-card__link">{{ d.projects_cta }} {{ macros::arrow() }}</a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="projects__nav">
+        <button class="projects__btn" type="button" data-pslider-prev aria-label="Předchozí projekty">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="projects__btn" type="button" data-pslider-next aria-label="Další projekty">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="projects__community" data-aos="fade-up">
+      <div class="projects__community-copy">
+        <h3>{{ d.projects_community_title }}</h3>
+        <p>{{ d.projects_community_text }}</p>
+      </div>
+      <a href="{{ d.projects_community_href }}" target="_blank" rel="noopener noreferrer" class="btn btn--outline">{{ d.projects_community_link }}</a>
+    </div>
+  </div>
+</section>

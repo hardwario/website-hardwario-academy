@@ -10,7 +10,7 @@ hero_title_2 = "No soldering."
 hero_title_3 = "No extra theory."
 hero_text = "HARDWARIO TOWER is a modular building kit that lets students measure real data, program devices and build their own IoT projects – from a thermometer to a smart home with Home Assistant."
 hero_cta_primary = "I want TOWER for my school"
-hero_cta_secondary = "Arrange a consultation"
+hero_cta_secondary = "TOWER product page"
 
 stats = [
   { value = "15+",   label = "Ready-made projects on the STEM portal" },
@@ -49,6 +49,20 @@ about_slides = [
   { image = "carousel-control",  name = "Control Set",  desc = "A set with a relay for home and industrial automation" },
 ]
 
+scenarios_kicker = "TEACHING SCENARIOS"
+scenarios_title = "What you can teach with TOWER at school"
+scenarios_text = "Concrete uses for lessons, project work and clubs — from measuring through data to automation."
+scenarios_cta = "Browse TOWER projects"
+scenarios_card_cta = "Project on STEM"
+scenarios = [
+  { icon = "thermo",     title = "Temperature & climate",          text = "Measure temperature, humidity and pressure and watch them change over time.", link_href = "https://stem.hardwario.com/projects/iguana-terrarium-monitor/" },
+  { icon = "co2",        title = "Air quality (CO₂)",              text = "Track CO₂ levels in the classroom and link them to ventilation.", link_href = "https://stem.hardwario.com/projects/radio-co2-monitor/" },
+  { icon = "home",       title = "Smart home & Home Assistant",    text = "Send data into Home Assistant and build a smart classroom.", link_href = "https://stem.hardwario.com/projects/radio-smart-led-strip/" },
+  { icon = "weather",    title = "Meteorology",                    text = "Build a school weather station and collect outdoor weather data.", link_href = "https://stem.hardwario.com/projects/" },
+  { icon = "data",       title = "Working with data (logging)",    text = "Store values over time and visualise them in charts and dashboards.", link_href = "https://stem.hardwario.com/projects/kennel-temperature-monitor/" },
+  { icon = "automation", title = "Automation",                     text = "React to events and switch devices via MQTT and Node-RED.", link_href = "https://stem.hardwario.com/projects/appliance-control/" },
+]
+
 courses_kicker = "COURSES"
 courses_title = "Build the Internet of Things"
 courses_link = "All courses"
@@ -75,6 +89,31 @@ courses = [
   { badge = "BEGINNER", level = "beginner", title = "Weather station in the school garden", text = "Temperature, humidity and pressure in one assembly, powered by AAA batteries, data sent over radio to the school network." },
 ]
 course_link = "Materials"
+
+projects_kicker = "TOWER PROJECTS"
+projects_title = "Inspiration for what to teach with TOWER"
+projects_text = "Quick inspiration for a lesson, project work or a club — not a long catalogue. Every project shows the minimum kit you need at a glance."
+projects_link = "All projects on STEM"
+projects_link_href = "https://stem.hardwario.com/projects/"
+projects_kit_label = "Min. kit"
+projects_pkg_label = "Recommended"
+projects_benefit_label = "Teaching value"
+projects_cta = "Open the guide"
+
+featured_project = { cat = "advanced", category = "Advanced", title = "Wireless weather station", text = "Measure wind, rainfall and temperature outdoors and send the data wirelessly over 868 MHz – from sensor to your own dashboard.", benefit = "Collecting real weather data and working with charts – bridges physics, IT and project work.", image = "weather-station.jpg", kit = ["Core Module", "Sensor Module", "Radio Dongle"], pkg = "STARTER", link_href = "https://www.hackster.io/158890/wireless-outdoor-weather-station-using-hardwario-core-module-76079a" }
+
+projects = [
+  { cat = "beginner",   category = "Beginner",    title = "Push the Button",      text = "Press a button and a push notification instantly lands on your phone.",   benefit = "First success in 15 minutes – the path from device to app.", image = "push-the-button.webp",           kit = ["Push Set", "Radio Dongle"],                    pkg = "STARTER", link_href = "https://stem.hardwario.com/projects/push-the-button/" },
+  { cat = "data",       category = "Data projects", title = "Wireless door sensor", text = "When a door or window opens, a notification lands on your phone.", benefit = "Intro to sensors and notifications – reacting to a real event.", image = "door-sensor.webp",      kit = ["Core Module", "Sensor Module", "Radio Dongle"], pkg = "STARTER", link_href = "https://stem.hardwario.com/projects/radio-door-sensor" },
+  { cat = "automation", category = "Automation",  title = "Wireless smart LED strip", text = "Control an LED strip remotely – colours, brightness and effects via Node-RED and Blynk.", benefit = "Controlling devices remotely and linking hardware to an app.", image = "smart-led-strip.webp", kit = ["Control Set", "Radio Dongle", "LED strip"],     pkg = "CLASS",   link_href = "https://stem.hardwario.com/projects/radio-smart-led-strip" },
+  { cat = "automation", category = "Automation",  title = "Smart ping-pong table",    text = "Whoever scores presses a button and an LED strip keeps the score for you.", benefit = "A fun club project – score logic and instant reaction to an event.", image = "ping-pong-table.jpg", kit = ["Core Module", "Power Module", "LED strip"],     pkg = "CLASS",   link_href = "https://www.hackster.io/jakub-smejkal/hardwario-ping-pong-table-a9d97e" },
+  { cat = "data",       category = "Data projects", title = "Measuring CO₂ and climate in the classroom", text = "A wireless monitor of CO₂, temperature, humidity, light and pressure – data in Node-RED and on your phone.", benefit = "Working with real data and dashboards – from sensor to chart in one lesson.", image = "radio-co2-monitor.webp", kit = ["CO₂ Monitor Kit", "Radio Dongle"], pkg = "CLASS",   link_href = "https://stem.hardwario.com/projects/radio-co2-monitor/" },
+]
+
+projects_community_title = "More inspiration from the community"
+projects_community_text = "Dozens of real TOWER projects from other users – from a weather station to power metering. Inspiration for final theses, clubs and students’ own ideas."
+projects_community_link = "Browse on Hackster.io"
+projects_community_href = "https://www.hackster.io/hardwario/projects"
 
 steps_kicker = "A PATH FOR TEACHERS"
 steps_title = "From package to a finished lesson in an afternoon."
@@ -111,9 +150,9 @@ resources_kicker = "RESOURCES AND DOCUMENTATION"
 resources_title = "Academy builds on. It doesn't replace."
 resources_text = "Everything in-depth and up to date is in the resources from HARDWARIO. Academy shows you the way in."
 resources = [
-  { tag = "HARDWARIO STEM", title = "STEM projects for students", text = "A collection of ready-made mini-courses and projects you go through with your class step by step. From the first sensor to your own application.", link = "Open STEM" },
-  { tag = "HACKSTER.IO",    title = "Community projects", text = "Real projects from other TOWER users. Inspiration for final theses, clubs and students' own ideas.", link = "Browse projects" },
-  { tag = "HARDWARIO DOCS", title = "TOWER documentation", text = "Technical documentation of all modules, code examples, a description of the SDK and integration with Home Assistant or Node-RED.", link = "Open documentation" },
+  { tag = "HARDWARIO STEM", title = "STEM projects for students", text = "A collection of ready-made mini-courses and projects you go through with your class step by step. From the first sensor to your own application.", link = "Open STEM", link_href = "https://stem.hardwario.com/" },
+  { tag = "HACKSTER.IO",    title = "Community projects", text = "Real projects from other TOWER users. Inspiration for final theses, clubs and students' own ideas.", link = "Browse projects", link_href = "https://www.hackster.io/hardwario/projects" },
+  { tag = "HARDWARIO DOCS", title = "TOWER documentation", text = "Technical documentation of all modules, code examples, a description of the SDK and integration with Home Assistant or Node-RED.", link = "Open documentation", link_href = "https://docs.hardwario.com/tower/" },
 ]
 
 testimonials_kicker = "REFERENCES"

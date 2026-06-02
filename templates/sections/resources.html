@@ -14,7 +14,7 @@
         <span class="resource-card__tag">{{ r.tag }}</span>
         <h3>{{ r.title }}</h3>
         <p>{{ r.text }}</p>
-        <a href="#" class="link-arrow">{{ r.link }} {{ macros::arrow() }}</a>
+        <a href="{{ r.link_href }}" target="_blank" rel="noopener noreferrer" class="link-arrow">{{ r.link }} {{ macros::arrow() }}</a>
       </article>
       {% endfor %}
     </div>

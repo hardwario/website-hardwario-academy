@@ -1,0 +1,24 @@
+{% import "macros.html" as macros %}
+
+<section class="scenarios" id="scenare">
+  <div class="container">
+    <div class="section-head section-head--center" data-aos="fade-up">
+      <span class="kicker">{{ d.scenarios_kicker }}</span>
+      <h2 class="h2--big">{{ d.scenarios_title }}</h2>
+      <p class="lead lead--narrow">{{ d.scenarios_text }}</p>
+    </div>
+    <div class="scenarios__grid" data-aos-stagger>
+      {% for s in d.scenarios %}
+      <article class="scenario-card">
+        <span class="scenario-card__icon">{{ macros::scenario_icon(name=s.icon) }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+        <a class="link-arrow" href="{{ s.link_href }}" target="_blank" rel="noopener noreferrer">{{ d.scenarios_card_cta }} {{ macros::arrow() }}</a>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="scenarios__cta" data-aos="fade-up">
+      <a class="btn btn--outline" href="#projekty">{{ d.scenarios_cta }} {{ macros::arrow() }}</a>
+    </div>
+  </div>
+</section>

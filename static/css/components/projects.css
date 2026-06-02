@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Projekty — kurátorovaný blok TOWER projektů (featured + swiper slider)
+   Inspirováno designem projektů v HARDWARIO Studio.
+   ========================================================================== */
+
+.projects { padding: 100px 0; background: var(--surface-muted); }
+.projects .section-head { margin-bottom: 40px; }
+
+/* ---- Kategorie (barevný tag) ---- */
+.project-cat {
+  display: inline-flex; align-items: center;
+  padding: 5px 12px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff;
+}
+.project-cat--beginner   { background: var(--c-green); }
+.project-cat--data       { background: var(--c-cyan); color: var(--dark-1a); }
+.project-cat--automation { background: var(--c-purple); }
+.project-cat--advanced   { background: var(--c-orange); color: var(--dark-1a); }
+
+/* ---- „Min. sada / produkty" – otagování ---- */
+.project-kit { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.project-kit__label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--text-mute); letter-spacing: .02em;
+}
+.project-kit__label svg { width: 14px; height: 14px; color: var(--red); }
+.kit-chip {
+  display: inline-flex; align-items: center;
+  padding: 5px 10px; border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  font-size: 12px; font-weight: 600; color: var(--text);
+}
+
+/* Doporučený balíček – odznak na fotce projektu (vpravo dole) */
+.project-pkg {
+  position: absolute; right: 12px; bottom: 12px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 11px; border-radius: 999px;
+  background: #fff; color: var(--dark-1a);
+  font-size: 11px; font-weight: 700; letter-spacing: .02em;
+  box-shadow: 0 4px 12px rgba(16, 16, 30, .2);
+  transition: background .15s ease, color .15s ease;
+}
+.project-pkg:hover { background: var(--blue); color: #fff; }
+.project-pkg svg { width: 13px; height: 13px; flex: none; color: var(--red); }
+.project-pkg:hover svg { color: #fff; }
+.project-pkg strong { font-weight: 800; }
+
+/* Přínos do výuky */
+.project-benefit { font-size: 14px; line-height: 22px; color: var(--text-soft); }
+.project-benefit strong { color: var(--heading); font-weight: 700; }
+
+
+/* ---- Featured projekt (velký, odlišený jako u kurzů) ---- */
+.project-feature {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm); margin-bottom: 40px;
+}
+.project-feature__media { position: relative; min-height: 340px; background: var(--surface-alt); }
+.project-feature__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-feature__body { display: flex; flex-direction: column; gap: 20px; padding: 48px; }
+.project-feature__body .project-cat { align-self: flex-start; }
+.project-feature__body h3 { font-size: 30px; line-height: 1.15; font-weight: 700; color: var(--heading); letter-spacing: -.02em; }
+.project-feature__body p { font-size: 16px; line-height: 26px; color: var(--text-soft); }
+.project-feature__body .link-arrow { margin-top: auto; }
+
+/* ---- Slider („swiper") ---- */
+.projects__slider { position: relative; }
+.projects__track {
+  display: flex; gap: 24px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  padding: 4px; margin: -4px; /* aby se neořezával stín karet */
+}
+.projects__track::-webkit-scrollbar { display: none; }
+
+.project-card {
+  flex: 0 0 360px; max-width: 82vw;
+  scroll-snap-align: start;
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s ease;
+}
+.project-card:hover { box-shadow: var(--shadow-md); }
+.project-card__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--surface-alt); }
+.project-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-card__media .project-cat { position: absolute; top: 14px; left: 14px; }
+.project-card__body { display: flex; flex-direction: column; gap: 12px; padding: 24px; flex: 1; }
+.project-card__body h3 { font-size: 20px; line-height: 1.2; font-weight: 700; color: var(--heading); letter-spacing: -.02em; }
+.project-card__body p { font-size: 15px; line-height: 23px; color: var(--text-soft); }
+.project-card__body .project-kit { margin-top: 2px; }
+.project-card__link { margin-top: auto; align-self: flex-start; font-size: 15px; }
+
+/* ---- Ovládání slideru ---- */
+.projects__nav { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.projects__btn {
+  width: 44px; height: 44px; flex: none; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, opacity .15s ease;
+}
+.projects__btn:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.projects__btn:disabled { opacity: .3; cursor: default; }
+.projects__btn:disabled:hover { background: var(--surface); border-color: var(--border); color: var(--text); }
+.projects__btn svg { width: 20px; height: 20px; }
+
+/* ---- Blok „Další inspirace z komunity" (Hackster.io) ---- */
+.projects__community {
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+  margin-top: 40px; padding: 32px 40px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.projects__community-copy { display: flex; flex-direction: column; gap: 6px; }
+.projects__community h3 { font-size: 22px; font-weight: 700; color: var(--heading); letter-spacing: -.02em; }
+.projects__community p { font-size: 15px; line-height: 23px; color: var(--text-soft); max-width: 640px; }
+.projects__community .btn { flex: none; }
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .project-feature { grid-template-columns: 1fr; }
+  .project-feature__media { min-height: 0; aspect-ratio: 16 / 9; }
+  .project-feature__body { padding: 32px; }
+}
+@media (max-width: 720px) {
+  .projects { padding: 56px 0; }
+  .project-feature__body { padding: 24px; gap: 16px; }
+  .project-feature__body h3 { font-size: 24px; }
+  .project-card { flex-basis: 280px; }
+  .projects__nav { justify-content: center; }
+  .projects__community { padding: 24px; flex-direction: column; align-items: flex-start; }
+  .projects__community .btn { width: 100%; }
+}

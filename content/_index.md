@@ -10,7 +10,7 @@ hero_title_2 = "Bez pájení."
 hero_title_3 = "Bez teorie navíc."
 hero_text = "HARDWARIO TOWER je modulární stavebnice, se kterou studenti měří reálná data, programují zařízení a staví vlastní IoT projekty – od teploměru po chytrou domácnost s Home Assistantem."
 hero_cta_primary = "Chci TOWER pro školu"
-hero_cta_secondary = "Domluvit konzultaci"
+hero_cta_secondary = "Produktová stránka TOWER"
 
 stats = [
   { value = "15+",   label = "Hotových projektů na STEM portálu" },
@@ -49,6 +49,20 @@ about_slides = [
   { image = "carousel-control",  name = "Control Set",  desc = "Sada s relé pro domácí a průmyslovou automatizaci" },
 ]
 
+scenarios_kicker = "VÝUKOVÉ SCÉNÁŘE"
+scenarios_title = "Co se dá s TOWER ve škole učit"
+scenarios_text = "Konkrétní použití do hodin, projektové výuky i kroužků — od měření přes data až po automatizaci."
+scenarios_cta = "Prohlédnout TOWER projekty"
+scenarios_card_cta = "Projekt na STEM"
+scenarios = [
+  { icon = "thermo",     title = "Teplota a klima",                text = "Měřte teplotu, vlhkost a tlak a sledujte, jak se mění v čase.", link_href = "https://stem.hardwario.com/projects/iguana-terrarium-monitor/" },
+  { icon = "co2",        title = "Kvalita vzduchu (CO₂)",          text = "Sledujte koncentraci CO₂ ve třídě a propojte ji s větráním.", link_href = "https://stem.hardwario.com/projects/radio-co2-monitor/" },
+  { icon = "home",       title = "Chytrá domácnost & Home Assistant", text = "Posílejte data do Home Assistantu a postavte chytrou učebnu.", link_href = "https://stem.hardwario.com/projects/radio-smart-led-strip/" },
+  { icon = "weather",    title = "Meteorologie",                   text = "Postavte školní meteostanici a sbírejte data o počasí venku.", link_href = "https://stem.hardwario.com/projects/" },
+  { icon = "data",       title = "Práce s daty (data logging)",    text = "Ukládejte hodnoty v čase a vizualizujte je v grafech a dashboardech.", link_href = "https://stem.hardwario.com/projects/kennel-temperature-monitor/" },
+  { icon = "automation", title = "Automatizace",                   text = "Reagujte na události a spínejte zařízení přes MQTT a Node-RED.", link_href = "https://stem.hardwario.com/projects/appliance-control/" },
+]
+
 courses_kicker = "KURZY"
 courses_title = "Tvořte internet věcí"
 courses_link = "Všechny kurzy"
@@ -75,6 +89,31 @@ courses = [
   { badge = "ZAČÁTEČNÍK", level = "beginner", title = "Meteostanice na školní zahradě", text = "Teplota, vlhkost a tlak v jedné sestavě, napájení z AAA baterií, data přes rádio do školní sítě." },
 ]
 course_link = "Materiály"
+
+projects_kicker = "TOWER PROJEKTY"
+projects_title = "Inspirace, co s TOWER učit"
+projects_text = "Rychlá inspirace pro hodinu, projektovou výuku i kroužek — ne dlouhý katalog. U každého projektu hned vidíš, jaká sada je minimálně potřeba."
+projects_link = "Všechny projekty na STEM"
+projects_link_href = "https://stem.hardwario.com/projects/"
+projects_kit_label = "Min. sada"
+projects_pkg_label = "Doporučeno"
+projects_benefit_label = "Přínos do výuky"
+projects_cta = "Otevřít návod"
+
+featured_project = { cat = "advanced", category = "Pokročilé", title = "Bezdrátová meteostanice", text = "Měř vítr, srážky a teplotu venku a posílej data bezdrátově na 868 MHz – od senzoru až po vlastní dashboard.", benefit = "Sběr reálných dat o počasí a práce s grafy – propojí fyziku, informatiku i projektovou výuku.", image = "weather-station.jpg", kit = ["Core Module", "Sensor Module", "Radio Dongle"], pkg = "STARTER", link_href = "https://www.hackster.io/158890/wireless-outdoor-weather-station-using-hardwario-core-module-76079a" }
+
+projects = [
+  { cat = "beginner",   category = "Začátečnické", title = "Push the Button",        text = "Stiskni tlačítko a do mobilu hned přijde push notifikace.", benefit = "První úspěch za 15 minut – cesta od zařízení do aplikace.", image = "push-the-button.webp",          kit = ["Push Set", "Radio Dongle"],                  pkg = "STARTER", link_href = "https://stem.hardwario.com/projects/push-the-button/" },
+  { cat = "data",       category = "Datové projekty", title = "Bezdrátový dveřní senzor", text = "Když se otevřou dveře nebo okno, přijde upozornění do telefonu.", benefit = "Úvod do senzorů a notifikací – reakce na reálnou událost.", image = "door-sensor.webp",      kit = ["Core Module", "Sensor Module", "Radio Dongle"], pkg = "STARTER", link_href = "https://stem.hardwario.com/cs/projects/radio-door-sensor" },
+  { cat = "automation", category = "Automatizace", title = "Bezdrátový chytrý LED pásek", text = "Ovládej LED pásek na dálku – barvy, jas i efekty přes Node-RED a Blynk.", benefit = "Ovládání zařízení na dálku a propojení hardwaru s aplikací.",      image = "smart-led-strip.webp", kit = ["Control Set", "Radio Dongle", "LED pásek"],     pkg = "CLASS",   link_href = "https://stem.hardwario.com/cs/projects/radio-smart-led-strip" },
+  { cat = "automation", category = "Automatizace", title = "Chytrý ping-pong stůl",  text = "Kdo skóruje, zmáčkne tlačítko a LED pásek hlídá skóre za vás.", benefit = "Zábavný projekt do kroužku – logika skóre a reakce na událost.", image = "ping-pong-table.jpg",   kit = ["Core Module", "Power Module", "LED pásek"],     pkg = "CLASS",   link_href = "https://www.hackster.io/jakub-smejkal/hardwario-ping-pong-table-a9d97e" },
+  { cat = "data",       category = "Datové projekty", title = "Měření CO₂ a klimatu ve třídě", text = "Bezdrátový monitor CO₂, teploty, vlhkosti, světla a tlaku – data v Node-REDu i v mobilu.", benefit = "Práce s reálnými daty a dashboardy – od senzoru ke grafu za hodinu.", image = "radio-co2-monitor.webp", kit = ["CO₂ Monitor Kit", "Radio Dongle"], pkg = "CLASS",   link_href = "https://stem.hardwario.com/projects/radio-co2-monitor/" },
+]
+
+projects_community_title = "Další inspirace z komunity"
+projects_community_text = "Desítky reálných TOWER projektů od ostatních uživatelů – od meteostanice po měření spotřeby. Inspirace pro maturitní práce, kroužky i vlastní nápady studentů."
+projects_community_link = "Prohlédnout na Hackster.io"
+projects_community_href = "https://www.hackster.io/hardwario/projects"
 
 steps_kicker = "CESTA PRO UČITELE"
 steps_title = "Od balíčku k hotové hodině za odpoledne."
@@ -111,9 +150,9 @@ resources_kicker = "ZDROJE A DOKUMENTACE"
 resources_title = "Academy navazuje. Nenahrazuje."
 resources_text = "Všechno hluboké a aktuální najdeš ve zdrojích od HARDWARIO. Academy ti ukáže, kudy do nich vstoupit."
 resources = [
-  { tag = "HARDWARIO STEM", title = "STEM projekty pro studenty", text = "Sbírka hotových mini-courses a projektů, kterými projdeš se třídou krok za krokem. Od prvního senzoru po vlastní aplikaci.", link = "Otevřít STEM" },
-  { tag = "HACKSTER.IO",    title = "Komunitní projekty", text = "Reálné projekty od ostatních uživatelů TOWER. Inspirace pro maturitní práce, kroužky a vlastní nápady studentů.", link = "Prohlédnout projekty" },
-  { tag = "HARDWARIO DOCS", title = "TOWER dokumentace", text = "Technická dokumentace všech modulů, příklady kódu, popis SDK a integrace s Home Assistantem nebo Node-REDem.", link = "Otevřít dokumentaci" },
+  { tag = "HARDWARIO STEM", title = "STEM projekty pro studenty", text = "Sbírka hotových mini-courses a projektů, kterými projdeš se třídou krok za krokem. Od prvního senzoru po vlastní aplikaci.", link = "Otevřít STEM", link_href = "https://stem.hardwario.com/" },
+  { tag = "HACKSTER.IO",    title = "Komunitní projekty", text = "Reálné projekty od ostatních uživatelů TOWER. Inspirace pro maturitní práce, kroužky a vlastní nápady studentů.", link = "Prohlédnout projekty", link_href = "https://www.hackster.io/hardwario/projects" },
+  { tag = "HARDWARIO DOCS", title = "TOWER dokumentace", text = "Technická dokumentace všech modulů, příklady kódu, popis SDK a integrace s Home Assistantem nebo Node-REDem.", link = "Otevřít dokumentaci", link_href = "https://docs.hardwario.com/tower/" },
 ]
 
 testimonials_kicker = "REFERENCE"

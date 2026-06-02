@@ -39,3 +39,9 @@ přegeneruje.
 - **Odkazy** `href="#"` (dokumentace, eshop, sociální sítě) vedou zatím nikam.
 - **Kontaktní formulář** nemá backend (`action="#"`) — napojte na svůj endpoint.
 - **CS/EN přepínač** je zatím jen vizuální; dvojjazyčnost lze doplnit přes Zola i18n.
+  
+
+  ## TODO
+[] - Přefotit tuto [stránku](https://stem.hardwario.com/cs/projects/radio-door-sensor/)
+[] - Případně i [tuto](https://www.hackster.io/158890/wireless-outdoor-weather-station-using-hardwario-core-module-76079a) nebo [tu](https://www.hackster.io/173905/hardwario-ping-pong-table-a9d97e)
+[] - Videa, fotky - Home Asistent

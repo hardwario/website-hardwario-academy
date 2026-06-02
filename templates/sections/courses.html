@@ -7,7 +7,7 @@
         <span class="kicker">{{ d.courses_kicker }}</span>
         <h2 class="h2--big">{{ d.courses_title }}</h2>
       </div>
-      <a href="#" class="link-arrow">{{ d.courses_link }} {{ macros::arrow() }}</a>
+      <a href="https://stem.hardwario.com/" target="_blank" rel="noopener noreferrer" class="link-arrow">{{ d.courses_link }} {{ macros::arrow() }}</a>
     </div>
 
     <div class="courses__grid">
@@ -40,7 +40,7 @@
         </div>
         <div class="course-feature__note">
           <p>{{ d.featured_course.note }}</p>
-          <a href="#" class="link-arrow link-arrow--rose">{{ d.featured_course.note_link }} {{ macros::arrow() }}</a>
+          <a href="#kontakt" class="link-arrow link-arrow--rose">{{ d.featured_course.note_link }} {{ macros::arrow() }}</a>
         </div>
       </article>
 
@@ -51,7 +51,7 @@
         </div>
         <h3>{{ c.title }}</h3>
         <p>{{ c.text }}</p>
-        <a href="#" class="link-arrow course-card__link">{{ d.course_link }} {{ macros::arrow() }}</a>
+        <a href="https://stem.hardwario.com/projects/" target="_blank" rel="noopener noreferrer" class="link-arrow course-card__link">{{ d.course_link }} {{ macros::arrow() }}</a>
       </article>
       {% endfor %}
     </div>

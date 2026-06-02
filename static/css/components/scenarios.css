@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Výukové scénáře — konkrétní použití TOWER ve škole
+   ========================================================================== */
+
+.scenarios { padding: 100px 0; }
+.scenarios__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.scenario-card {
+  display: flex; flex-direction: column; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.scenario-card:hover { border-color: var(--red); box-shadow: var(--shadow-sm); }
+.scenario-card__icon {
+  width: 52px; height: 52px; flex: none; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--surface-alt); color: var(--red);
+}
+.scenario-card__icon svg { width: 26px; height: 26px; }
+.scenario-card h3 { font-size: 19px; font-weight: 700; color: var(--heading); letter-spacing: -.01em; }
+.scenario-card p { font-size: 15px; line-height: 23px; color: var(--text-soft); }
+.scenario-card .link-arrow { margin-top: auto; font-size: 14px; }
+
+.scenarios__cta { display: flex; justify-content: center; margin-top: 40px; }
+.scenarios__cta .arrow { width: 8px; height: 14px; }
+
+@media (max-width: 960px) { .scenarios__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) {
+  .scenarios { padding: 56px 0; }
+  .scenarios__grid { grid-template-columns: 1fr; }
+}

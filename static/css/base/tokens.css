@@ -31,6 +31,7 @@
   --bg:            #ffffff;
   --surface:       #ffffff;
   --surface-alt:   #f1faff;
+  --surface-muted: #f3f4f6;
   --heading:       #000000;
   --heading-ink:   #252532;
   --text:          #252532;
@@ -68,6 +69,7 @@
   --bg:            #0f0f14;
   --surface:       #1a1a22;
   --surface-alt:   #15151d;
+  --surface-muted: #131319;
   --heading:       #ffffff;
   --heading-ink:   #f3f3f6;
   --text:          #e7e7ee;

@@ -415,3 +415,37 @@
     location.replace(pref === "en" ? "/en/" : "/");
   }
 })();
+
+/* Projekty — horizontální swiper se šipkami a scroll-snapem */
+(function () {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-pslider]").forEach((s) => {
+    const track = s.querySelector("[data-pslider-track]");
+    if (!track) return;
+    const prev = s.querySelector("[data-pslider-prev]");
+    const next = s.querySelector("[data-pslider-next]");
+
+    function cardStep() {
+      const card = track.querySelector(".project-card");
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+    }
+    function go(dir) {
+      track.scrollBy({ left: dir * cardStep(), behavior: reduce ? "auto" : "smooth" });
+    }
+    if (prev) prev.addEventListener("click", () => go(-1));
+    if (next) next.addEventListener("click", () => go(1));
+
+    function update() {
+      const max = track.scrollWidth - track.clientWidth;
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max - 2;
+    }
+    let ticking = false;
+    track.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); }
+    }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+})();
