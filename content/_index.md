@@ -14,7 +14,7 @@ hero_cta_secondary = "Domluvit konzultaci"
 
 stats = [
   { value = "15+",   label = "Hotových projektů na STEM portálu" },
-  { value = "???",   label = "HARDWARIO TOWER na trhu" },
+  { value = "10",   label = "HARDWARIO TOWER na trhu" },
   { value = "0×",    label = "Pájení – moduly se cvakají" },
   { value = "CS/EN", label = "Dokumentace, návody a SDK" },
 ]
@@ -130,4 +130,10 @@ contact_kicker = "CESTA PRO UČITELE"
 contact_title = "Chcete TOWER do své školy"
 contact_text = "Napište nám pár vět o tom, co učíte a co byste s TOWER chtěli vyzkoušet. Ozveme se do dvou pracovních dnů s návrhem sady a termínem konzultace."
 contact_phone_note = "Nebo zavolejte přímo"
+
+cta_title = "Připraveni učit IoT prakticky?"
+cta_text = "Domluvte si nezávaznou konzultaci. Doporučíme sadu přesně na vaši třídu a předmět a pomůžeme rozjet první hodinu."
+cta_primary = "Chci TOWER pro školu"
+cta_secondary = "Domluvit konzultaci"
+cta_phone_note = "Nebo zavolejte přímo:"
 +++

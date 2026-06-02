@@ -11,6 +11,27 @@
 .marquee__controls { display: none; justify-content: center; gap: 12px; margin-top: 32px; }
 @media (max-width: 720px) {
   .marquee__controls { display: flex; }
+
+  /* Mobile: hand the track over to native horizontal scroll-snap so every
+     card always lands dead-centre instead of being half cut off. */
+  .marquee__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;            /* Firefox */
+  }
+  .marquee__viewport::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+  /* Side padding gives the first and last card room to centre. The value
+     mirrors the card width (min(440px, 80vw)) so the centre always lines up. */
+  .marquee__track {
+    transform: none !important;       /* drop the desktop marquee transform */
+    padding-inline: max((100vw - 440px) / 2, 10vw);
+  }
+  .tcard { scroll-snap-align: center; }
+
+  /* The duplicated set only exists for the infinite desktop marquee. */
+  .tcard[aria-hidden="true"] { display: none; }
 }
 
 /* Karta reference */

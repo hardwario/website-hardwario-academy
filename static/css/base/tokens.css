@@ -60,6 +60,11 @@
 
 /* ---- Semantic — DARK theme ---- */
 [data-theme="dark"] {
+  /* Brighter accent red reads better on dark surfaces (logo keeps #e30427) */
+  --red:           #f43f5e;
+  --red-80:        rgba(244, 63, 94, .8);
+  --red-soft:      rgba(244, 63, 94, .2);
+
   --bg:            #0f0f14;
   --surface:       #1a1a22;
   --surface-alt:   #15151d;
@@ -81,7 +86,7 @@
   --footer-bg:     #14141c;
   --footer-text:   #b9b9c6;
   --package-feat-bg: #23232f;
-  --logo-2:        #c8c8d3;
+  --logo-2:        #ffffff;
   --shadow-sm:     0 6px 18px rgba(0, 0, 0, .45);
   --shadow-md:     0 18px 40px rgba(0, 0, 0, .55);
 }

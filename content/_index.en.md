@@ -14,7 +14,7 @@ hero_cta_secondary = "Arrange a consultation"
 
 stats = [
   { value = "15+",   label = "Ready-made projects on the STEM portal" },
-  { value = "???",   label = "HARDWARIO TOWER on the market" },
+  { value = "10",   label = "HARDWARIO TOWER on the market" },
   { value = "0×",    label = "Soldering – modules just click together" },
   { value = "CS/EN", label = "Documentation, guides and SDK" },
 ]
@@ -130,4 +130,10 @@ contact_kicker = "A PATH FOR TEACHERS"
 contact_title = "Want TOWER at your school"
 contact_text = "Write us a few words about what you teach and what you'd like to try with TOWER. We'll get back to you within two business days with a proposed set and a consultation date."
 contact_phone_note = "Or call us directly"
+
+cta_title = "Ready to teach IoT hands-on?"
+cta_text = "Arrange a no-obligation consultation. We'll recommend a set tailored to your class and subject and help you get the first lesson running."
+cta_primary = "I want TOWER for my school"
+cta_secondary = "Arrange a consultation"
+cta_phone_note = "Or call us directly:"
 +++

@@ -2,7 +2,7 @@
    Footer
    ========================================================================== */
 
-.site-footer { background: var(--footer-bg); color: var(--footer-text); margin-top: 150px; --logo-2: #6b6a6a; }
+.site-footer { background: var(--footer-bg); color: var(--footer-text); margin-top: 72px; --logo-2: #6b6a6a; }
 .site-footer__social { border-bottom: 1px solid rgba(255, 255, 255, .12); padding: 24px 0; }
 .socials { display: flex; justify-content: center; gap: 32px; }
 .socials a {

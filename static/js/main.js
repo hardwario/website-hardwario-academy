@@ -318,15 +318,34 @@
       raf = requestAnimationFrame(step);
     }
     const jump = () => Math.min(vp.clientWidth * 0.85, 480);
-    if (prev) prev.addEventListener("click", () => advance(-jump()));
-    if (next) next.addEventListener("click", () => advance(jump()));
+    // One card + gap — the scroll-snap distance used on mobile.
+    function cardStep() {
+      const card = track.querySelector(".tcard");
+      return card ? card.getBoundingClientRect().width + gap : vp.clientWidth;
+    }
+    // Mobile/reduced-motion: scroll the viewport one card so snap keeps it
+    // centred. Desktop: nudge the continuous marquee transform.
+    function go(dir) {
+      if (mobile.matches || reduce) {
+        vp.scrollBy({ left: dir * cardStep(), behavior: reduce ? "auto" : "smooth" });
+      } else {
+        advance(dir * jump());
+      }
+    }
+    if (prev) prev.addEventListener("click", () => go(-1));
+    if (next) next.addEventListener("click", () => go(1));
     m.addEventListener("mouseenter", () => { paused = true; });
     m.addEventListener("mouseleave", () => { paused = false; });
 
     function setMode() {
       if (raf) { cancelAnimationFrame(raf); raf = null; }
-      offset = 0; render();
-      if (!mobile.matches && !reduce) raf = requestAnimationFrame(step);
+      offset = 0;
+      if (mobile.matches || reduce) {
+        track.style.transform = ""; // let CSS scroll-snap take over
+      } else {
+        render();
+        raf = requestAnimationFrame(step);
+      }
     }
     setMode();
     mobile.addEventListener("change", setMode);

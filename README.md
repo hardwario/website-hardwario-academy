@@ -22,7 +22,7 @@ templates/
 static/
   css/style.css        # styly (1:1 podle mockupu)
   js/main.js           # mobilní menu + FAQ akordeon
-  img/favicon.svg      # favicon
+  images/HARDWARIO.svg # favicon (logo HARDWARIO, 1:1 jako Studio)
 ```
 
 ## Editace obsahu

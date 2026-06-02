@@ -25,12 +25,12 @@
     "components/ui.css", "components/header.css", "components/footer.css",
     "components/hero.css", "components/features.css", "components/about.css", "components/courses.css",
     "components/steps.css", "components/packages.css", "components/faq.css", "components/resources.css",
-    "components/contact.css", "components/testimonials.css",
+    "components/contact.css", "components/testimonials.css", "components/cta.css",
     "base/responsive.css"
   ] -%}
   {% for f in css_files %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
   {% endfor %}
-  <link rel="icon" href="{{ get_url(path='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg') }}" type="image/svg+xml">
 </head>
 <body>
 
