@@ -15,7 +15,7 @@
 
 /* Logo */
 .logo { display: inline-flex; align-items: center; flex: none; }
-.logo__svg { height: 32px; width: auto; display: block; }
+.logo__svg { height: 30px; width: auto; display: block; }
 .logo__svg .cls-3 { fill: var(--logo-red, #e30427); }
 .logo__svg .cls-2 { fill: var(--logo-2, #6b6a6a); }
 .logo__svg .cls-1 { isolation: isolate; }

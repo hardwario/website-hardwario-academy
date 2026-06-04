@@ -2,7 +2,7 @@
    Hero + stats bar
    ========================================================================== */
 
-.hero { padding-top: 80px; }
+.hero { padding-top: 80px;  }
 .hero__inner {
   display: grid; grid-template-columns: 1fr 562px;
   gap: 80px; align-items: center;

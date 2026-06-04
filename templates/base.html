@@ -31,7 +31,7 @@
   ] -%}
   {% for f in css_files %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
   {% endfor %}
-  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg', cachebust=true) }}" type="image/svg+xml">
 </head>
 <body>
 
