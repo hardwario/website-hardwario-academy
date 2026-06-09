@@ -13,10 +13,17 @@
         <a href="{{ config.extra.phone_href }}">{{ config.extra.phone }}</a>
       </div>
     </div>
-    <form class="contact-form" method="post" action="#" onsubmit="return false;" data-aos="fade-left">
+    <form class="contact-form"
+          data-hs-form="contact"
+          data-hs-portal="5453210"
+          data-hs-form-guid="04bde971-c4a4-48d9-9dcc-0430b14b669a"
+          data-hs-sending="{{ trans(key='form_sending', lang=lang) }}"
+          data-hs-success="{{ trans(key='form_success', lang=lang) }}"
+          data-hs-error="{{ trans(key='form_error', lang=lang) }} {{ config.extra.email }}"
+          data-aos="fade-left">
       <div class="contact-form__grid">
         <label>{{ trans(key='form_name', lang=lang) }} *
-          <input type="text" name="name" placeholder="{{ trans(key='form_name_ph', lang=lang) }}" required>
+          <input type="text" name="full_name" placeholder="{{ trans(key='form_name_ph', lang=lang) }}" required>
         </label>
         <label>{{ trans(key='form_school', lang=lang) }} *
           <input type="text" name="school" placeholder="{{ trans(key='form_school_ph', lang=lang) }}" required>
@@ -25,19 +32,26 @@
           <input type="email" name="email" placeholder="{{ trans(key='form_email_ph', lang=lang) }}" required>
         </label>
         <label>{{ trans(key='form_interest', lang=lang) }} *
-          <select name="interest" required>
+          <select name="interested_in" required>
             <option value="" disabled selected>{{ trans(key='form_select', lang=lang) }}</option>
-            <option>{{ trans(key='form_opt1', lang=lang) }}</option>
-            <option>{{ trans(key='form_opt2', lang=lang) }}</option>
-            <option>{{ trans(key='form_opt3', lang=lang) }}</option>
-            <option>{{ trans(key='form_opt4', lang=lang) }}</option>
+            <option value="Pilot set">{{ trans(key='form_opt1', lang=lang) }}</option>
+            <option value="Whole-class package">{{ trans(key='form_opt2', lang=lang) }}</option>
+            <option value="Whole-year set">{{ trans(key='form_opt3', lang=lang) }}</option>
+            <option value="Consultation">{{ trans(key='form_opt4', lang=lang) }}</option>
           </select>
         </label>
         <label class="contact-form__full">{{ trans(key='form_message', lang=lang) }} *
-          <textarea name="message" rows="4" placeholder="{{ trans(key='form_message_ph', lang=lang) }}"></textarea>
+          <textarea name="message" rows="4" placeholder="{{ trans(key='form_message_ph', lang=lang) }}" required></textarea>
         </label>
+        <p class="contact-form__full contact-form__consent">
+          <span class="contact-form__consent-text">
+            {{ trans(key='form_consent_pre', lang=lang) }}
+            <a href="{{ trans(key='form_consent_link_href', lang=lang) | safe }}" target="_blank" rel="noopener noreferrer">{{ trans(key='form_consent_link', lang=lang) }}</a>{{ trans(key='form_consent_post', lang=lang) }}
+          </span>
+        </p>
       </div>
       <button type="submit" class="btn btn--primary contact-form__submit">{{ trans(key='form_submit', lang=lang) }}</button>
+      <p class="contact-form__status" data-hs-status role="status" aria-live="polite" hidden></p>
     </form>
   </div>
 </section>
