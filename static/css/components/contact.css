@@ -105,22 +105,11 @@
   .cselect__arrow { transition: color .15s ease; }
 }
 
-.contact-form__note { font-size: 13px; line-height: 1.5; color: var(--text-mute); }
+.contact-form__note { margin-top: -16px; font-size: 13px; line-height: 1.5; color: var(--text-mute); }
 .contact-form__note a { color: var(--red); font-weight: 600; text-decoration: underline; }
 .contact-form__note a:hover { opacity: .8; }
 
 .contact-form__submit { align-self: flex-start; }
-
-/* Privacy notice */
-.contact-form__consent {
-  margin: 0;
-  font-size: 14px; font-weight: 400; line-height: 22px;
-  color: var(--text-soft); letter-spacing: 0;
-}
-.contact-form__consent-text a {
-  color: var(--text); text-decoration: underline; text-underline-offset: 2px;
-}
-.contact-form__consent-text a:hover { color: var(--red); }
 
 /* Submission status */
 .contact-form__status {

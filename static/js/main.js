@@ -230,8 +230,8 @@
     return m ? m[1] : undefined;
   }
   function consentText(form) {
-    const span = form.querySelector(".contact-form__consent-text");
-    return span ? span.textContent.replace(/\s+/g, " ").trim()
+    const note = form.querySelector(".contact-form__note");
+    return note ? note.textContent.replace(/\s+/g, " ").trim()
                 : "I agree to allow HARDWARIO to store and process my personal data.";
   }
 
@@ -271,7 +271,7 @@
     if (hutk) context.hutk = hutk;
 
     // Implicit consent: by submitting, the user agrees to the privacy notice
-    // shown above the submit button. We mirror that text into HubSpot so the
+    // shown below the submit button. We mirror that text into HubSpot so the
     // consent record on the contact reflects what they actually saw.
     const body = {
       fields,

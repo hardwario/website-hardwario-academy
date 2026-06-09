@@ -43,12 +43,6 @@
         <label class="contact-form__full">{{ trans(key='form_message', lang=lang) }} *
           <textarea name="message" rows="4" placeholder="{{ trans(key='form_message_ph', lang=lang) }}" required></textarea>
         </label>
-        <p class="contact-form__full contact-form__consent">
-          <span class="contact-form__consent-text">
-            {{ trans(key='form_consent_pre', lang=lang) }}
-            <a href="{{ trans(key='form_consent_link_href', lang=lang) | safe }}" target="_blank" rel="noopener noreferrer">{{ trans(key='form_consent_link', lang=lang) }}</a>{{ trans(key='form_consent_post', lang=lang) }}
-          </span>
-        </p>
       </div>
       <button type="submit" class="btn btn--primary btn--sm contact-form__submit">{{ trans(key='form_submit', lang=lang) }}</button>
       <p class="contact-form__note">{{ trans(key='form_consent', lang=lang) }} <a href="https://hardwario.com/legal/privacy/" target="_blank" rel="noopener noreferrer">{{ trans(key='form_consent_link', lang=lang) }}</a>.</p>

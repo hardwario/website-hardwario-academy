@@ -140,7 +140,7 @@ faqs = [
   { q = "Pre aké typy škôl je TOWER vhodný?", a = "Druhý stupeň ZŠ, stredné školy, gymnáziá, SOŠ a VOŠ. Hodí sa na predmety informatika, fyzika, programovanie a projektovú výučbu. Ak máte záujem o iný formát, ozvite sa." },
   { q = "Musí učiteľ vedieť programovať v C?", a = "Nie. Pripravené projekty využívajú hotový firmvér a konfiguráciu. Pokročilejšie kurzy ponúkajú aj programovanie v C a Pythone, ale nie je to podmienka." },
   { q = "Koľko žiakov zaberie jedna sada?", a = "Ideálne 2–3 žiaci na jednu sadu, aby si každý siahol na hardvér. Balíčky odporúčame podľa veľkosti triedy." },
-  { q = "Aký softvér žiaci potrebujú?", a = "Stačí webový prehliadač a voliteľne mobilná aplikácia. Všetko ostatné beží na dodanom Raspberry Pi serveri." },
+  { q = "Aký software žiaci potrebujú?", a = "Stačí webový prehliadač a voliteľne mobilná aplikácia. Všetko ostatné beží na dodanom Raspberry Pi serveri." },
   { q = "Je to bezpečné pre žiakov?", a = "Áno. Všetko beží na nízkom napätí, moduly sa zacvakávajú bez spájkovania a horúcich nástrojov. Žiadne riziko popálenia ani skratu." },
   { q = "Čo keď potrebujem poradiť s konkrétnym projektom?", a = "Napíšte nám alebo využite komunitné fórum. Pomôžeme s návrhom hodiny aj s technickým zapojením." },
   { q = "V akom jazyku je dokumentácia a kurzy?", a = "Dokumentácia, návody aj SDK sú dostupné v češtine aj angličtine (CS/EN)." },

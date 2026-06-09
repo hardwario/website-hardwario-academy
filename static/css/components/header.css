@@ -101,7 +101,7 @@
   border-top: 1px solid var(--border-hair);
 }
 .theme-toggle__label { display: none; }
-.nav__cta { margin-top: 2px; }
+.nav__controls .nav__cta  { margin-top: 2px; font-size:12px; padding: 12px 24px; }
 
 /* Mobile language pills */
 .nav__lang { display: flex; flex-direction: column; gap: 10px; }
