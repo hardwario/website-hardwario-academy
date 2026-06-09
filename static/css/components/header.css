@@ -39,7 +39,7 @@
   border-radius: 8px;
   transition: color .15s, background .15s;
 }
-.main-nav a:hover { color: var(--red); background: var(--border-hair); }
+.main-nav a:hover { color: var(--red); }
 .main-nav a.is-active { color: var(--red); }
 
 /* Actions */
