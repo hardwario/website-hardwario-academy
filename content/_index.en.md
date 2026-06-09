@@ -10,10 +10,10 @@ hero_title_2 = "No soldering."
 hero_title_3 = "No extra theory."
 hero_text = "HARDWARIO TOWER is a modular building kit that lets students measure real data, program devices and build their own IoT projects – from a thermometer to a smart home with Home Assistant."
 hero_cta_primary = "I want TOWER for my school"
-hero_cta_secondary = "TOWER product page"
+hero_cta_secondary = "See how it works"
 
 stats = [
-  { value = "15+",   label = "Ready-made projects on the STEM portal" },
+  { value = "30+",   label = "Ready-made projects on the STEM portal" },
   { value = "10",   label = "HARDWARIO TOWER on the market" },
   { value = "0×",    label = "Soldering – modules just click together" },
   { value = "CS/EN", label = "Documentation, guides and SDK" },
@@ -22,7 +22,7 @@ stats = [
 features_kicker = "WHY TOWER IN THE CLASSROOM"
 features_title = "IoT you can teach without improvising."
 features = [
-  { icon = "teach",      title = "Hands-on teaching instead of theory", text = "Students measure temperature, humidity, CO₂ and motion and work with real data from the classroom, not with examples from a worksheet. A lesson looks different when the number comes straight from a sensor." },
+  { icon = "teach",      title = "Hands-on, not theory", text = "Students measure temperature, humidity, CO₂ and motion and work with real data from the classroom, not with examples from a worksheet. A lesson looks different when the number comes straight from a sensor." },
   { icon = "connection", title = "Connection with applications", text = "TOWER sends data over its own radio to a USB dongle and on via MQTT into Home Assistant or Node-RED. Students see the whole journey from sensor to dashboard." },
   { icon = "shield",     title = "Safe experiments", text = "Everything runs on low voltage from AAA batteries, no 230 V in the classroom and no improvising with power supplies. Experiments therefore take place without unnecessary risk." },
   { icon = "box",        title = "No soldering, no losses", text = "Modules simply click together, no soldering iron and no short circuits. Thanks to consumption under 5 µA in sleep, AAA batteries last a whole semester of lessons in the classroom." },

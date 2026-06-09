@@ -6,17 +6,17 @@
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 8px;
-  height: 48px;
-  padding: 0 32px;
+  padding: 16px 32px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   border: 1px solid transparent;
   white-space: nowrap;
   transition: filter .15s ease, background .15s, color .15s, border-color .15s;
+  text-transform: uppercase;
 }
-.btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
 .btn--block { width: 100%; }
+.btn--sm { height: auto; padding: 12px 24px;  }
 .btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
 .btn--primary:hover { background: var(--dark-1a); border-color: var(--dark-1a); }
 .btn--outline { background: transparent; border-color: var(--text); color: var(--text); }
@@ -44,7 +44,7 @@
 .check-dot svg { width: 11px; height: 11px; }
 .check-list { display: flex; flex-direction: column; gap: 16px; }
 .check-list li { display: flex; gap: 16px; align-items: flex-start; }
-.check-list li span { font-size: 16px; line-height: 26px; color: var(--text-soft); }
+.check-list li span { font-size: 16px;  color: var(--text-soft); }
 .check-list li strong { color: var(--text); font-weight: 600; }
 .check-list--tight { gap: 8px; }
 .check-list--tight li span { font-weight: 400; }
@@ -54,7 +54,7 @@
   display: inline-flex; align-items: center;
   padding: 4px 16px; border-radius: var(--radius);
   font-size: 12px; font-weight: 600; color: #fff;
-  letter-spacing: -.02em; line-height: 20px;
+  letter-spacing: -.02em; 
 }
 .badge--beginner { background: var(--c-green); }
 .badge--advanced { background: var(--c-orange); }

@@ -2,21 +2,22 @@
 
 <section class="faq" id="faq">
   <div class="container faq__inner">
-    <div class="faq__copy" data-aos="fade-right">
-      <div class="section__head">
+    <div class="faq__head" data-aos="fade-up">
       <span class="kicker">{{ d.faq_kicker }}</span>
       <h2 class="h2--big">{{ d.faq_title }}</h2>
-      </div>
       <p class="lead">{{ d.faq_text }}</p>
-      <a href="#kontakt" class="btn btn--primary">{{ d.faq_cta }}</a>
     </div>
-    <div class="faq__list" data-aos="fade-left">
+    <div class="faq__list" data-aos="fade-up">
       {% for item in d.faqs %}
       <details class="faq-item"{% if loop.first %} open{% endif %}>
-        <summary>{{ item.q }}<span class="faq-item__icon" aria-hidden="true"></span></summary>
+        <summary>
+          <span class="faq-item__q">{{ item.q }}</span>
+          {{ macros::chevron() }}
+        </summary>
         <div class="faq-item__answer"><p>{{ item.a }}</p></div>
       </details>
       {% endfor %}
     </div>
+    <a href="#kontakt" class="btn btn--primary faq__cta" data-aos="fade-up">{{ d.faq_cta }}</a>
   </div>
 </section>

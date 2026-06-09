@@ -4,8 +4,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-  <meta name="description" content="{% if section %}{{ section.description | default(value=config.description) }}{% elif page %}{{ page.description | default(value=config.description) }}{% else %}{{ config.description }}{% endif %}">
+  {%- if section %}{% set_global page_title = section.title | default(value=config.title) %}{% set_global meta_desc = section.description | default(value=config.description) %}{% set_global canonical = section.permalink %}
+  {%- elif page %}{% set_global page_title = page.title | default(value=config.title) %}{% set_global meta_desc = page.description | default(value=config.description) %}{% set_global canonical = page.permalink %}
+  {%- else %}{% set_global page_title = config.title %}{% set_global meta_desc = config.description %}{% set_global canonical = config.base_url %}{% endif %}
+  {%- set og_image = get_url(path='img/hero-product.png') %}
+
+  <title>{% block title %}{{ page_title }}{% endblock title %}</title>
+  <meta name="description" content="{{ meta_desc }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HARDWARIO Academy">
+  <meta property="og:locale" content="{% if lang == 'cs' %}cs_CZ{% elif lang == 'en' %}en_US{% elif lang == 'de' %}de_DE{% elif lang == 'sk' %}sk_SK{% elif lang == 'pl' %}pl_PL{% else %}{{ lang }}{% endif %}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ meta_desc }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ og_image }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ meta_desc }}">
+  <meta name="twitter:image" content="{{ og_image }}">
+  <meta name="twitter:site" content="@hardwario_cz">
+
+  {%- if section %}
+  {%- for t in section.translations %}
+  <link rel="alternate" hreflang="{{ t.lang }}" href="{{ t.permalink }}">
+  {%- endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ config.base_url }}/">
+  {%- endif %}
 
   <script>
     (function () {

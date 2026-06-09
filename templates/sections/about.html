@@ -7,7 +7,7 @@
         <div class="tower-slider__viewport">
           {% for s in d.about_slides %}
           <div class="tower-slider__slide{% if loop.first %} is-active{% endif %}" data-slide>
-            <img src="{{ get_url(path='img/' ~ s.image ~ '.avif') }}" alt="{{ s.name }}" loading="lazy" width="755" height="797">
+            <img src="{{ get_url(path='img/' ~ s.image ~ '.webp') }}" alt="{{ s.name }}" loading="lazy" width="640" height="640">
           </div>
           {% endfor %}
         </div>

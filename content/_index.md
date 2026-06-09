@@ -10,10 +10,10 @@ hero_title_2 = "Bez pájení."
 hero_title_3 = "Bez teorie navíc."
 hero_text = "HARDWARIO TOWER je modulární stavebnice, se kterou studenti měří reálná data, programují zařízení a staví vlastní IoT projekty – od teploměru po chytrou domácnost s Home Assistantem."
 hero_cta_primary = "Chci TOWER pro školu"
-hero_cta_secondary = "Produktová stránka TOWER"
+hero_cta_secondary = "Jak to funguje"
 
 stats = [
-  { value = "15+",   label = "Hotových projektů na STEM portálu" },
+  { value = "30+",   label = "Hotových projektů na STEM portálu" },
   { value = "10",   label = "HARDWARIO TOWER na trhu" },
   { value = "0×",    label = "Pájení – moduly se cvakají" },
   { value = "CS/EN", label = "Dokumentace, návody a SDK" },

@@ -12,8 +12,8 @@
   .h2--big { font-size: 36px; }
   .h2--mid { font-size: 36px; }
   .hero__inner { grid-template-columns: 1fr 1fr; gap: 48px; }
-  .about__inner { grid-template-columns: 1fr 1fr; gap: 56px; }
-  .steps__inner, .faq__inner, .contact__inner { grid-template-columns: 1fr; gap: 56px; }
+  .about__inner { grid-template-columns: minmax(0, 440px) 1fr; gap: 56px; }
+  .steps__inner, .contact__inner { grid-template-columns: 1fr; gap: 56px; }
   .resources__grid { gap: 32px; }
   .packages__grid { gap: 32px; }
   .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 40px 32px; }

@@ -7,10 +7,11 @@
     const dark = theme === "dark";
     toggles.forEach((t) => {
       const label = t.querySelector(".theme-toggle__label");
-      const en = document.documentElement.lang === "en";
-      if (label) label.textContent = dark
-        ? (en ? "Light mode" : "Světlý režim")
-        : (en ? "Dark mode" : "Tmavý režim");
+      if (label) {
+        const dl = t.getAttribute("data-label-dark");
+        const ll = t.getAttribute("data-label-light");
+        label.textContent = dark ? (ll || "Light mode") : (dl || "Dark mode");
+      }
       t.setAttribute("aria-pressed", String(dark));
     });
   }
@@ -404,7 +405,7 @@
     document.cookie = "lang=" + v + ";path=/;max-age=31536000;samesite=lax";
   }
   function getCookie() {
-    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en)\b/);
+    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en|de|sk|pl)\b/);
     return m ? m[1] : null;
   }
   document.querySelectorAll("[data-lang-switch]").forEach((el) => {
@@ -412,7 +413,7 @@
   });
   const pref = getCookie();
   if (pref && pref !== current) {
-    location.replace(pref === "en" ? "/en/" : "/");
+    location.replace(pref === "cs" ? "/" : "/" + pref + "/");
   }
 })();
 
