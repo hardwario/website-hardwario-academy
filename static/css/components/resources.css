@@ -9,9 +9,11 @@
   display: flex; flex-direction: column; gap: 32px;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 32px;
+  cursor: pointer;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.resource-card:hover { border-color: var(--gray-6b); }
+.resource-card:hover,
+.resource-card:focus-within { border-color: var(--gray-6b); }
 .resource-card__decor {
   position: absolute; right: -30px; bottom: -40px;
   width: 127px; height: auto; opacity: .7; pointer-events: none;
@@ -22,3 +24,6 @@
 .resource-card h3 { font-size: 24px; font-weight: 600; color: var(--heading); line-height: 26px; }
 .resource-card p { font-size: 16px; line-height: 26px; color: var(--text-soft); position: relative; z-index: 1; }
 .resource-card .link-arrow { margin-top: auto; }
+/* Stretch the card's link over the whole card → the entire card is clickable.
+   z-index:2 to sit above the paragraph (z-index:1) and the decorative image. */
+.resource-card .link-arrow::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: var(--radius); }
