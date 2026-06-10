@@ -1,37 +1,37 @@
-{# Language switcher dropdown — EN / CS / DE / SK / PL #}
-<div class="lang-switch" data-lang-menu>
-  <button class="lang-switch__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="{{ trans(key='lang_aria', lang=lang) }}">
+{# Language switcher — EN / CS / DE / SK / PL (CSS hover/focus dropdown of nav links) #}
+<nav class="lang-switch" data-lang-menu aria-label="{{ trans(key='lang_aria', lang=lang) }}">
+  <button class="lang-switch__btn" type="button" aria-label="{{ trans(key='lang_aria', lang=lang) }}">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
       <circle cx="8" cy="8" r="6.5" />
       <path d="M1.5 8h13M8 1.5c1.8 1.8 2.7 4 2.7 6.5S9.8 12.7 8 14.5C6.2 12.7 5.3 10.5 5.3 8S6.2 3.3 8 1.5Z" />
     </svg>
     <span class="lang-switch__current">{{ lang | upper }}</span>
   </button>
-  <ul class="lang-switch__menu" role="listbox">
-    <li role="option" aria-selected="{% if lang == 'en' %}true{% else %}false{% endif %}">
-      <a href="/en/" hreflang="en" data-lang-switch="en" class="lang-switch__opt{% if lang == 'en' %} is-active{% endif %}">
+  <ul class="lang-switch__menu">
+    <li>
+      <a href="/en/" hreflang="en" data-lang-switch="en" class="lang-switch__opt{% if lang == 'en' %} is-active{% endif %}"{% if lang == 'en' %} aria-current="page"{% endif %}>
         <span class="lang-switch__code">EN</span><span class="lang-switch__name">English</span>
       </a>
     </li>
-    <li role="option" aria-selected="{% if lang == 'cs' %}true{% else %}false{% endif %}">
-      <a href="/" hreflang="cs" data-lang-switch="cs" class="lang-switch__opt{% if lang == 'cs' %} is-active{% endif %}">
+    <li>
+      <a href="/" hreflang="cs" data-lang-switch="cs" class="lang-switch__opt{% if lang == 'cs' %} is-active{% endif %}"{% if lang == 'cs' %} aria-current="page"{% endif %}>
         <span class="lang-switch__code">CS</span><span class="lang-switch__name">Čeština</span>
       </a>
     </li>
-    <li role="option" aria-selected="{% if lang == 'de' %}true{% else %}false{% endif %}">
-      <a href="/de/" hreflang="de" data-lang-switch="de" class="lang-switch__opt{% if lang == 'de' %} is-active{% endif %}">
+    <li>
+      <a href="/de/" hreflang="de" data-lang-switch="de" class="lang-switch__opt{% if lang == 'de' %} is-active{% endif %}"{% if lang == 'de' %} aria-current="page"{% endif %}>
         <span class="lang-switch__code">DE</span><span class="lang-switch__name">Deutsch</span>
       </a>
     </li>
-    <li role="option" aria-selected="{% if lang == 'sk' %}true{% else %}false{% endif %}">
-      <a href="/sk/" hreflang="sk" data-lang-switch="sk" class="lang-switch__opt{% if lang == 'sk' %} is-active{% endif %}">
+    <li>
+      <a href="/sk/" hreflang="sk" data-lang-switch="sk" class="lang-switch__opt{% if lang == 'sk' %} is-active{% endif %}"{% if lang == 'sk' %} aria-current="page"{% endif %}>
         <span class="lang-switch__code">SK</span><span class="lang-switch__name">Slovenčina</span>
       </a>
     </li>
-    <li role="option" aria-selected="{% if lang == 'pl' %}true{% else %}false{% endif %}">
-      <a href="/pl/" hreflang="pl" data-lang-switch="pl" class="lang-switch__opt{% if lang == 'pl' %} is-active{% endif %}">
+    <li>
+      <a href="/pl/" hreflang="pl" data-lang-switch="pl" class="lang-switch__opt{% if lang == 'pl' %} is-active{% endif %}"{% if lang == 'pl' %} aria-current="page"{% endif %}>
         <span class="lang-switch__code">PL</span><span class="lang-switch__name">Polski</span>
       </a>
     </li>
   </ul>
-</div>
+</nav>

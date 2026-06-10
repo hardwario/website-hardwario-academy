@@ -47,6 +47,7 @@
   --input-bg:      #ffffff;
   --input-bd:      #d1d5db;
   --header-bg:     rgba(255, 255, 255, .92);
+  --focus:         #06367a;
   --footer-bg:     #252532;
   --footer-text:   #d1d5db;
   --package-feat-bg: #252532;
@@ -85,6 +86,7 @@
   --input-bg:      #1a1a22;
   --input-bd:      #34343f;
   --header-bg:     rgba(15, 15, 20, .9);
+  --focus:         #7aa7ff;
   --footer-bg:     #14141c;
   --footer-text:   #b9b9c6;
   --package-feat-bg: #23232f;

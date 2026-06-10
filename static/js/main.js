@@ -109,6 +109,19 @@
     const menu = document.createElement("ul");
     menu.className = "cselect__menu";
     menu.setAttribute("role", "listbox");
+    const menuId = id + "-menu";
+    menu.id = menuId;
+    btn.setAttribute("aria-controls", menuId);
+
+    // Mirror the field's <label> text onto the custom controls so the button
+    // has an accessible name (the native <select> is hidden from AT).
+    let labelText = "";
+    const fieldLabel = native.closest("label");
+    if (fieldLabel) {
+      fieldLabel.childNodes.forEach((n) => { if (n.nodeType === 3) labelText += n.textContent; });
+    }
+    labelText = labelText.replace(/\*/g, "").replace(/\s+/g, " ").trim();
+    if (labelText) { btn.setAttribute("aria-label", labelText); menu.setAttribute("aria-label", labelText); }
 
     let placeholder = "Vyberte…";
     const optionEls = [];
@@ -150,7 +163,7 @@
       active = Math.max(0, Math.min(optionEls.length - 1, i));
       optionEls.forEach((li, idx) => li.classList.toggle("is-active", idx === active));
       const el = optionEls[active];
-      if (el) { el.scrollIntoView({ block: "nearest" }); menu.setAttribute("aria-activedescendant", el.id); }
+      if (el) { el.scrollIntoView({ block: "nearest" }); btn.setAttribute("aria-activedescendant", el.id); }
     }
     function open() {
       wrap.classList.add("is-open");
@@ -158,7 +171,7 @@
       const cur = optionEls.findIndex((li) => li.getAttribute("aria-selected") === "true");
       setActive(cur >= 0 ? cur : 0);
     }
-    function close() { wrap.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); }
+    function close() { wrap.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); btn.removeAttribute("aria-activedescendant"); }
     function choose(li) {
       native.value = li.dataset.value;
       optionEls.forEach((x) => x.removeAttribute("aria-selected"));
@@ -401,7 +414,12 @@
 
     if (prev) prev.addEventListener("click", () => { go(i - 1); start(); });
     if (next) next.addEventListener("click", () => { go(i + 1); start(); });
-    items.forEach((it, idx) => it.addEventListener("click", () => { go(idx); start(); }));
+    items.forEach((it, idx) => {
+      it.addEventListener("click", () => { go(idx); start(); });
+      it.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(idx); start(); }
+      });
+    });
 
     [slider.querySelector(".about__media"), slider.querySelector(".set-list")].forEach((el) => {
       if (!el) return;

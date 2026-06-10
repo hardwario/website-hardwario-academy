@@ -5,7 +5,12 @@
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  /* Offset anchored targets so they aren't hidden under the sticky header (72px) */
+  scroll-padding-top: 88px;
+}
 
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -17,6 +22,7 @@ body {
 }
 
 img, svg { display: block; max-width: 100%; }
+img { height: auto; }
 [hidden] { display: none !important; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; padding: 0; }

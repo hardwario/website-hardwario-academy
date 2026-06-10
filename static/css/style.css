@@ -1,5 +1,7 @@
 /* ==========================================================================
    HARDWARIO Academy — styl podle Figma návrhu (Web.fig)
+   POZN.: Produkční načítání řeší base.html (kritické + odložené CSS jednotlivě).
+   Tento bundle je vývojová/záložní agregace a musí zůstat v souladu s base.html.
    ========================================================================== */
 
 /* Base */
@@ -20,7 +22,7 @@
 @import "components/hero.css";
 @import "components/features.css";
 @import "components/about.css";
-@import "components/courses.css";
+@import "components/scenarios.css";
 @import "components/projects.css";
 @import "components/steps.css";
 @import "components/packages.css";

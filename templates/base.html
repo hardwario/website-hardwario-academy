@@ -13,7 +13,8 @@
   <meta name="description" content="{{ meta_desc }}">
   <link rel="canonical" href="{{ canonical }}">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f14" media="(prefers-color-scheme: dark)">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HARDWARIO Academy">
@@ -22,11 +23,16 @@
   <meta property="og:description" content="{{ meta_desc }}">
   <meta property="og:url" content="{{ canonical }}">
   <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1480">
+  <meta property="og:image:height" content="552">
+  <meta property="og:image:alt" content="{{ trans(key='hero_img_alt', lang=lang) }}">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page_title }}">
   <meta name="twitter:description" content="{{ meta_desc }}">
   <meta name="twitter:image" content="{{ og_image }}">
+  <meta name="twitter:image:alt" content="{{ trans(key='hero_img_alt', lang=lang) }}">
   <meta name="twitter:site" content="@hardwario_cz">
 
   {%- if section %}
@@ -38,6 +44,9 @@
 
   <script>
     (function () {
+      // Mark JS as available so scroll-reveal animations only hide content
+      // when they can actually be revealed again (no-JS = everything visible).
+      document.documentElement.classList.add("js");
       try {
         var t = localStorage.getItem("theme");
         if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -46,31 +55,65 @@
     })();
   </script>
 
+  {# Preload the LCP hero image so it starts downloading before the CSS does #}
+  <link rel="preload" as="image" href="{{ get_url(path='img/hero-product.png') }}" fetchpriority="high">
+
+  {# Fonts — loaded non-render-blocking (swap from print → all once ready) #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@600;700&display=swap" rel="stylesheet">
-  {%- set css_files = [
+  {%- set font_href = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@600;700&display=swap" %}
+  <link rel="stylesheet" href="{{ font_href }}" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ font_href }}"></noscript>
+
+  {# Critical CSS — render-blocking, covers above-the-fold (tokens, reset,
+     typography, layout, header, hero) + responsive so mobile is correct #}
+  {%- set critical_css = [
     "base/tokens.css", "base/reset.css", "base/typography.css", "base/layout.css", "base/animations.css",
-    "components/ui.css", "components/header.css", "components/footer.css",
-    "components/hero.css", "components/features.css", "components/about.css", "components/scenarios.css",
-    "components/courses.css", "components/projects.css",
-    "components/steps.css", "components/packages.css", "components/faq.css", "components/resources.css",
-    "components/contact.css", "components/testimonials.css", "components/cta.css",
-    "base/responsive.css"
+    "components/ui.css", "components/header.css", "components/hero.css", "base/responsive.css"
   ] -%}
-  {% for f in css_files %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
+  {% for f in critical_css %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
   {% endfor %}
-    <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg', cachebust=true) }}" type="image/svg+xml">
+  {# Below-the-fold CSS — loaded without blocking first render #}
+  {%- set deferred_css = [
+    "components/footer.css", "components/features.css", "components/about.css", "components/scenarios.css",
+    "components/projects.css", "components/steps.css", "components/packages.css", "components/faq.css",
+    "components/resources.css", "components/contact.css", "components/testimonials.css", "components/cta.css"
+  ] -%}
+  {% for f in deferred_css %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}" media="print" onload="this.media='all'">
+  {% endfor %}
+  <noscript>
+    {% for f in deferred_css %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
+    {% endfor %}
+  </noscript>
+  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg', cachebust=true) }}" type="image/svg+xml">
 </head>
 <body>
+  <a class="skip-link" href="#main">{{ trans(key='skip_to_content', lang=lang) }}</a>
 
   {% include "partials/header.html" %}
 
-  <main>
+  <main id="main">
     {% block content %}{% endblock content %}
   </main>
 
   {% include "partials/footer.html" %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "HARDWARIO",
+    "url": "{{ config.base_url }}/",
+    "logo": "{{ get_url(path='images/HARDWARIO.svg') }}",
+    "sameAs": [
+      "https://www.linkedin.com/company/13187032",
+      "https://twitter.com/hardwario_cz",
+      "https://www.instagram.com/hardwario/",
+      "https://www.youtube.com/c/hardwario",
+      "https://github.com/hardwario"
+    ]
+  }
+  </script>
 
   <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
 </body>

@@ -14,7 +14,7 @@
     {% set fp = d.featured_project %}
     <article class="project-feature" data-aos="zoom-in">
       <div class="project-feature__media">
-        <img src="{{ get_url(path='img/projects/' ~ fp.image) }}" alt="{{ fp.title }}" loading="lazy">
+        <img src="{{ get_url(path='img/projects/' ~ fp.image) }}" alt="{{ fp.title }}" loading="lazy" decoding="async" width="1280" height="720">
         <a class="project-pkg" href="#balicky" title="{{ d.projects_pkg_label }}: {{ fp.pkg }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>{{ d.projects_pkg_label }}: <strong>{{ fp.pkg }}</strong></a>
       </div>
       <div class="project-feature__body">
@@ -35,7 +35,7 @@
         {% for p in d.projects %}
         <article class="project-card">
           <div class="project-card__media">
-            <img src="{{ get_url(path='img/projects/' ~ p.image) }}" alt="{{ p.title }}" loading="lazy">
+            <img src="{{ get_url(path='img/projects/' ~ p.image) }}" alt="{{ p.title }}" loading="lazy" decoding="async" width="800" height="600">
             <span class="project-cat project-cat--{{ p.cat }}">{{ p.category }}</span>
             <a class="project-pkg" href="#balicky" title="{{ d.projects_pkg_label }}: {{ p.pkg }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>{{ d.projects_pkg_label }}: <strong>{{ p.pkg }}</strong></a>
           </div>
@@ -53,10 +53,10 @@
         {% endfor %}
       </div>
       <div class="projects__nav">
-        <button class="projects__btn" type="button" data-pslider-prev aria-label="Předchozí projekty">
+        <button class="projects__btn" type="button" data-pslider-prev aria-label="{{ trans(key='slider_prev', lang=lang) }}">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <button class="projects__btn" type="button" data-pslider-next aria-label="Další projekty">
+        <button class="projects__btn" type="button" data-pslider-next aria-label="{{ trans(key='slider_next', lang=lang) }}">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>

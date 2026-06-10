@@ -1,43 +1,44 @@
 /* ==========================================================================
    Animate on scroll
+   Only active when JS is available (`.js` is set on <html> before paint).
+   Without JS every element stays fully visible — no blank page on JS failure.
    ========================================================================== */
 
-[data-aos] {
+.js [data-aos] {
   opacity: 0;
   transition: opacity .4s ease, transform .4s ease;
   transition-delay: var(--aos-delay, 0ms);
-  will-change: opacity, transform;
 }
-[data-aos="fade-up"]    { transform: translateY(10px); }
-[data-aos="fade-down"]  { transform: translateY(-10px); }
-[data-aos="fade-left"]  { transform: translateX(10px); }
-[data-aos="fade-right"] { transform: translateX(-10px); }
-[data-aos="zoom-in"]    { transform: scale(.98); }
-[data-aos="fade"]       { transform: none; }
+.js [data-aos="fade-up"]    { transform: translateY(10px); }
+.js [data-aos="fade-down"]  { transform: translateY(-10px); }
+.js [data-aos="fade-left"]  { transform: translateX(10px); }
+.js [data-aos="fade-right"] { transform: translateX(-10px); }
+.js [data-aos="zoom-in"]    { transform: scale(.98); }
+.js [data-aos="fade"]       { transform: none; }
 
-[data-aos].is-visible {
+.js [data-aos].is-visible {
   opacity: 1;
   transform: none;
 }
 
 /* Stagger */
-[data-aos-stagger] > * {
+.js [data-aos-stagger] > * {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .4s ease, transform .4s ease;
 }
-[data-aos-stagger].is-visible > * { opacity: 1; transform: none; }
-[data-aos-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; }
-[data-aos-stagger].is-visible > *:nth-child(2) { transition-delay: 80ms; }
-[data-aos-stagger].is-visible > *:nth-child(3) { transition-delay: 160ms; }
-[data-aos-stagger].is-visible > *:nth-child(4) { transition-delay: 240ms; }
-[data-aos-stagger].is-visible > *:nth-child(5) { transition-delay: 320ms; }
-[data-aos-stagger].is-visible > *:nth-child(6) { transition-delay: 400ms; }
-[data-aos-stagger].is-visible > *:nth-child(7) { transition-delay: 480ms; }
+.js [data-aos-stagger].is-visible > * { opacity: 1; transform: none; }
+.js [data-aos-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.js [data-aos-stagger].is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.js [data-aos-stagger].is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.js [data-aos-stagger].is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.js [data-aos-stagger].is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.js [data-aos-stagger].is-visible > *:nth-child(6) { transition-delay: 400ms; }
+.js [data-aos-stagger].is-visible > *:nth-child(7) { transition-delay: 480ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-aos],
-  [data-aos-stagger] > * {
+  .js [data-aos],
+  .js [data-aos-stagger] > * {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

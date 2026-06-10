@@ -9,7 +9,7 @@
     <div class="packages__grid" data-aos-stagger>
       {% for p in d.packages %}
       <article class="package{% if p.featured %} package--featured{% endif %}">
-        {% if p.featured %}<span class="package__flag">DOPORUČUJEME</span>{% endif %}
+        {% if p.featured %}<span class="package__flag">{{ trans(key='pkg_recommended', lang=lang) }}</span>{% endif %}
         <div class="package__head">
           <span class="package__tier">{{ p.tier }}</span>
           <h3>{{ p.name }}</h3>

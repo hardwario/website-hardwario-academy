@@ -12,10 +12,10 @@
           {% endfor %}
         </div>
         <div class="tower-slider__controls">
-          <button class="tower-slider__btn" type="button" data-slider-prev aria-label="Předchozí">
+          <button class="tower-slider__btn" type="button" data-slider-prev aria-label="{{ trans(key='slider_prev', lang=lang) }}">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <button class="tower-slider__btn" type="button" data-slider-next aria-label="Další">
+          <button class="tower-slider__btn" type="button" data-slider-next aria-label="{{ trans(key='slider_next', lang=lang) }}">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
@@ -29,7 +29,7 @@
       <p class="lead">{{ d.about_text }}</p>
       <ul class="set-list">
         {% for s in d.about_slides %}
-        <li class="set-list__item{% if loop.first %} is-active{% endif %}" data-slide-to="{{ loop.index0 }}">
+        <li class="set-list__item{% if loop.first %} is-active{% endif %}" data-slide-to="{{ loop.index0 }}" role="button" tabindex="0">
           <strong>{{ s.name }}</strong>
           <span>{{ s.desc }}</span>
         </li>

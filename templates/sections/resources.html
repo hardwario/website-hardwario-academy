@@ -10,7 +10,7 @@
     <div class="resources__grid" data-aos-stagger>
       {% for r in d.resources %}
       <article class="resource-card">
-        <img class="resource-card__decor" src="{{ get_url(path='img/resource-decor.png') }}" alt="" aria-hidden="true">
+        <img class="resource-card__decor" src="{{ get_url(path='img/resource-decor.png') }}" alt="" aria-hidden="true" width="164" height="160" loading="lazy" decoding="async">
         <span class="resource-card__tag">{{ r.tag }}</span>
         <h3>{{ r.title }}</h3>
         <p>{{ r.text }}</p>

@@ -2,6 +2,14 @@
    UI atoms — buttons, arrow links, check dots, badges, chips
    ========================================================================== */
 
+/* ---- Global keyboard focus indicator ----
+   Form fields keep their own (higher-specificity) :focus styles. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* ---- Buttons ---- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
