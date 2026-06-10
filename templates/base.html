@@ -85,7 +85,7 @@
     {% for f in deferred_css %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
     {% endfor %}
   </noscript>
-  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg', cachebust=true) }}" type="image/svg+xml">
+  <link rel="icon" href="{{ get_url(path='img/favicon.svg', cachebust=true) }}" type="image/svg+xml">
 </head>
 <body>
   <a class="skip-link" href="#main">{{ trans(key='skip_to_content', lang=lang) }}</a>
